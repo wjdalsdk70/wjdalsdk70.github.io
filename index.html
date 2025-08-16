@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        main {
+            padding: 3rem 0;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-card-content {
+            padding: 1.5rem;
+        }
+
+        .blog-card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .blog-card p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .read-more {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover {
+            transform: scale(1.05);
+        }
+
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            color: #667eea;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>My GitHub Blog</h1>
+            <p>개발과 기술에 대한 생각을 나누는 공간입니다</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">홈</a></li>
+                <li><a href="#blog">블로그</a></li>
+                <li><a href="#about">소개</a></li>
+                <li><a href="#contact">연락처</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="main-content">
+                <div class="blog-section">
+                    <h2 style="margin-bottom: 2rem; color: #333; border-bottom: 3px solid #667eea; padding-bottom: 0.5rem;">최신 포스트</h2>
+                    
+                    <div class="blog-grid">
+                        <article class="blog-card">
+                            <img src="https://via.placeholder.com/400x200/667eea/ffffff?text=Blog+Post+1" alt="블로그 포스트 1">
+                            <div class="blog-card-content">
+                                <h3>React Hooks 완벽 가이드</h3>
+                                <p>React Hooks의 기본 개념부터 고급 사용법까지 자세히 알아보는 포스트입니다. useState, useEffect, useContext 등 주요 훅들의 활용법을 실습 예제와 함께 설명합니다.</p>
+                                <div class="blog-meta">
+                                    <span>2024년 1월 15일</span>
+                                    <a href="#" class="read-more">더 보기</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card">
+                            <img src="https://via.placeholder.com/400x200/764ba2/ffffff?text=Blog+Post+2" alt="블로그 포스트 2">
+                            <div class="blog-card-content">
+                                <h3>TypeScript로 안전한 개발하기</h3>
+                                <p>TypeScript의 타입 시스템을 활용하여 더 안전하고 유지보수하기 좋은 코드를 작성하는 방법을 소개합니다. 실제 프로젝트에서의 적용 사례도 함께 다룹니다.</p>
+                                <div class="blog-meta">
+                                    <span>2024년 1월 10일</span>
+                                    <a href="#" class="read-more">더 보기</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card">
+                            <img src="https://via.placeholder.com/400x200/667eea/ffffff?text=Blog+Post+3" alt="블로그 포스트 3">
+                            <div class="blog-card-content">
+                                <h3>Git 워크플로우 모범 사례</h3>
+                                <p>팀 개발에서 효율적인 Git 워크플로우를 구축하는 방법을 알아봅니다. Git Flow, GitHub Flow 등 다양한 브랜치 전략과 커밋 메시지 컨벤션에 대해 다룹니다.</p>
+                                <div class="blog-meta">
+                                    <span>2024년 1월 5일</span>
+                                    <a href="#" class="read-more">더 보기</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card">
+                            <img src="https://via.placeholder.com/400x200/764ba2/ffffff?text=Blog+Post+4" alt="블로그 포스트 4">
+                            <div class="blog-card-content">
+                                <h3>CSS Grid와 Flexbox 마스터하기</h3>
+                                <p>모던 CSS 레이아웃의 핵심인 Grid와 Flexbox를 완벽하게 이해하고 활용하는 방법을 배워봅니다. 반응형 디자인을 위한 실용적인 예제들을 제공합니다.</p>
+                                <div class="blog-meta">
+                                    <span>2023년 12월 28일</span>
+                                    <a href="#" class="read-more">더 보기</a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="widget">
+                        <h3>카테고리</h3>
+                        <ul>
+                            <li><a href="#">프론트엔드 (15)</a></li>
+                            <li><a href="#">백엔드 (12)</a></li>
+                            <li><a href="#">데이터베이스 (8)</a></li>
+                            <li><a href="#">DevOps (6)</a></li>
+                            <li><a href="#">알고리즘 (10)</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget" style="margin-top: 2rem;">
+                        <h3>인기 태그</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                            <span style="background: #667eea; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">JavaScript</span>
+                            <span style="background: #764ba2; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">React</span>
+                            <span style="background: #667eea; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">TypeScript</span>
+                            <span style="background: #764ba2; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">Node.js</span>
+                            <span style="background: #667eea; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem;">Python</span>
+                        </div>
+                    </div>
+
+                    <div class="widget" style="margin-top: 2rem;">
+                        <h3>최근 댓글</h3>
+                        <ul>
+                            <li><a href="#">정말 유용한 정보였습니다!</a></li>
+                            <li><a href="#">예제 코드가 이해하기 쉬웠어요</a></li>
+                            <li><a href="#">추가로 궁금한 점이 있습니다</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My GitHub Blog. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" title="GitHub">📚</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="LinkedIn">💼</a>
+                <a href="#" title="Email">✉️</a>
+            </div>
+            <p style="margin-top: 1rem; opacity: 0.8;">개발자의 성장 이야기를 담은 블로그입니다</p>
+        </div>
+    </footer>
+</body>
+</html>
