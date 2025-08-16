@@ -1,0 +1,175 @@
+---
+title: "React Hooks 완벽 가이드"
+date: "2024-01-15"
+description: "React Hooks의 기본 개념부터 고급 사용법까지 자세히 알아보는 포스트입니다. useState, useEffect, useContext 등 주요 훅들의 활용법을 실습 예제와 함께 설명합니다."
+---
+
+# React Hooks 완벽 가이드
+
+React Hooks는 함수형 컴포넌트에서 상태와 생명주기를 관리할 수 있게 해주는 기능입니다. 이 글에서는 Hooks의 기본 개념부터 실제 활용 사례까지 자세히 알아보겠습니다.
+
+## useState Hook
+
+가장 기본적인 Hook으로, 컴포넌트에서 상태를 관리합니다.
+
+```jsx
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <div>
+      <p>현재 카운트: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        증가
+      </button>
+      <button onClick={() => setCount(count - 1)}>
+        감소
+      </button>
+    </div>
+  );
+}
+```
+
+## useEffect Hook
+
+컴포넌트의 생명주기와 관련된 작업을 처리합니다.
+
+```jsx
+import React, { useState, useEffect } from 'react';
+
+function UserProfile({ userId }) {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchUser() {
+      try {
+        const response = await fetch(`/api/users/${userId}`);
+        const userData = await response.json();
+        setUser(userData);
+      } catch (error) {
+        console.error('사용자 정보를 가져오는데 실패했습니다:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchUser();
+  }, [userId]); // userId가 변경될 때만 실행
+
+  if (loading) return <div>로딩 중...</div>;
+  if (!user) return <div>사용자를 찾을 수 없습니다.</div>;
+
+  return (
+    <div>
+      <h2>{user.name}</h2>
+      <p>{user.email}</p>
+    </div>
+  );
+}
+```
+
+## useContext Hook
+
+Context API를 통해 전역 상태를 관리할 수 있습니다.
+
+```jsx
+import React, { createContext, useContext, useState } from 'react';
+
+const ThemeContext = createContext();
+
+function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+function useTheme() {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme는 ThemeProvider 내에서 사용되어야 합니다.');
+  }
+  return context;
+}
+
+function ThemedButton() {
+  const { theme, toggleTheme } = useTheme();
+  
+  return (
+    <button 
+      onClick={toggleTheme}
+      className={`btn ${theme === 'dark' ? 'btn-dark' : 'btn-light'}`}
+    >
+      {theme === 'light' ? '다크 모드' : '라이트 모드'}
+    </button>
+  );
+}
+```
+
+## 커스텀 Hook 만들기
+
+자주 사용하는 로직을 커스텀 Hook으로 만들어 재사용할 수 있습니다.
+
+```jsx
+import { useState, useEffect } from 'react';
+
+function useLocalStorage(key, initialValue) {
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      console.error(error);
+      return initialValue;
+    }
+  });
+
+  const setValue = value => {
+    try {
+      const valueToStore = value instanceof Function ? value(storedValue) : value;
+      setStoredValue(valueToStore);
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return [storedValue, setValue];
+}
+
+// 사용 예시
+function TodoApp() {
+  const [todos, setTodos] = useLocalStorage('todos', []);
+  
+  const addTodo = (text) => {
+    setTodos(prev => [...prev, { id: Date.now(), text, completed: false }]);
+  };
+
+  return (
+    <div>
+      {/* Todo 컴포넌트 내용 */}
+    </div>
+  );
+}
+```
+
+## Hooks 사용 규칙
+
+1. **최상위에서만 호출**: 반복문, 조건문, 중첩 함수 내부에서 호출하면 안 됩니다.
+2. **React 함수에서만 호출**: 일반 JavaScript 함수에서는 호출할 수 없습니다.
+
+## 결론
+
+React Hooks는 함수형 컴포넌트를 더욱 강력하게 만들어주는 기능입니다. 적절히 활용하면 코드의 가독성과 재사용성을 크게 향상시킬 수 있습니다.
+
+이 글에서 다룬 내용들을 바탕으로 실제 프로젝트에 적용해보시기 바랍니다! 
