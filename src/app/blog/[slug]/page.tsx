@@ -11,8 +11,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const filePath = path.join(process.cwd(), "posts", `${params.slug}.mdx`);
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const filePath = path.join(process.cwd(), "posts", `${slug}.mdx`);
   const source = fs.readFileSync(filePath, "utf-8");
   const { content, data } = matter(source);
 
