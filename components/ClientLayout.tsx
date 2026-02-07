@@ -19,7 +19,7 @@ export default function ClientLayout({
       <div className="min-h-screen">
         <Sidebar />
         <RightSidebar recentPosts={recentPosts} songUrl={songUrl} />
-        <div className="min-h-screen md:ml-64 xl:mr-80">
+        <div className="min-h-screen md:ml-[17.5rem] xl:mr-[17.5rem]">
           <div className="w-full px-2 md:px-8 pt-8">
             <Breadcrumbs />
           </div>

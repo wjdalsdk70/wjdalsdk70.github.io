@@ -5,7 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --sidebar-bg: #f8f9fa;
+  --sidebar-bg: #fff7d6;
   --card-bg: #ffffff;
   --border: #e5e7eb;
   --text-muted: #6b7280;
@@ -14,7 +14,7 @@
 .dark {
   --background: #1a1a1a;
   --foreground: #ededed;
-  --sidebar-bg: #252525;
+  --sidebar-bg: #3a3520;
   --card-bg: #2d2d2d;
   --border: #404040;
   --text-muted: #9ca3af;

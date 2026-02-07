@@ -34,7 +34,7 @@ function toYouTubeEmbed(url: string) {
 export default function RightSidebar({ recentPosts, songUrl }: RightSidebarProps) {
   const embedUrl = toYouTubeEmbed(songUrl)
   return (
-    <aside className="hidden xl:flex w-80 bg-[var(--sidebar-bg)] flex-col px-6 pt-16 pb-4 border-l border-[var(--border)] fixed inset-y-0 right-0 overflow-y-auto">
+    <aside className="hidden xl:flex w-[17.5rem] flex-col px-6 pt-16 pb-4 border-l border-[var(--border)] fixed inset-y-0 right-0 overflow-y-auto bg-white dark:bg-[var(--sidebar-bg)]">
       <section className="w-full mb-10">
         <h2 className="text-sm font-semibold mb-4">최근 글</h2>
         <ul className="space-y-4">

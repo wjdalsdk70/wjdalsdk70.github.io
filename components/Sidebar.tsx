@@ -20,7 +20,7 @@ export default function Sidebar() {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <aside className="hidden md:flex w-64 bg-[var(--sidebar-bg)] flex-col px-8 pt-16 pb-4 border-r border-[var(--border)] fixed inset-y-0 left-0 overflow-y-auto">
+    <aside className="hidden md:flex w-[17.5rem] flex-col px-6 pt-16 pb-4 border-r border-[var(--border)] fixed inset-y-0 left-0 overflow-y-auto bg-[linear-gradient(180deg,#fff7d6_0%,#fff3c4_35%,#fffbe6_100%),radial-gradient(70%_40%_at_20%_10%,rgba(250,204,21,0.22),transparent_60%),radial-gradient(60%_30%_at_80%_25%,rgba(253,224,71,0.18),transparent_60%)]">
       <header className="w-full mb-8">
         <Link href="/" className="block mb-4">
           <div className="w-28 h-28 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden flex items-center justify-center mx-auto">
@@ -72,20 +72,19 @@ export default function Sidebar() {
       </nav>
 
       <div className="w-full flex items-center justify-center gap-3 pt-4 border-t border-[var(--border)]">
-        <button
-          onClick={toggleTheme}
-          className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-          aria-label="Toggle theme"
-        >
-          {theme === 'light' ? <MoonIcon className="w-5 h-5" /> : <SunIcon className="w-5 h-5" />}
-        </button>
-
-        <div className="flex gap-2">
+        <div className="flex gap-4">
+          <button
+            onClick={toggleTheme}
+            className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white/60 dark:bg-black/20 hover:bg-white/80 dark:hover:bg-black/30 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? <MoonIcon className="w-5 h-5" /> : <SunIcon className="w-5 h-5" />}
+          </button>
           <a
             href={`https://github.com/${siteConfig.social.github}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white/60 dark:bg-black/20 hover:bg-white/80 dark:hover:bg-black/30 transition-colors"
             aria-label="GitHub"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -94,20 +93,11 @@ export default function Sidebar() {
           </a>
           <a
             href={`mailto:${siteConfig.social.email}`}
-            className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-white/60 dark:bg-black/20 hover:bg-white/80 dark:hover:bg-black/30 transition-colors"
             aria-label="Email"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z" />
-            </svg>
-          </a>
-          <a
-            href="/feed.xml"
-            className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="RSS"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248-1.796 0-3.252-1.454-3.252-3.248 0-1.794 1.456-3.248 3.252-3.248 1.795.001 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z" />
             </svg>
           </a>
         </div>
