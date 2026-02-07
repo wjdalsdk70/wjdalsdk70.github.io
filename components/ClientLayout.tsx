@@ -16,17 +16,17 @@ export default function ClientLayout({
 }) {
   return (
     <ThemeProvider>
-      <div className="flex min-h-screen">
+      <div className="min-h-screen">
         <Sidebar />
-        <div className="flex-1 flex flex-col min-w-0">
+        <RightSidebar recentPosts={recentPosts} songUrl={songUrl} />
+        <div className="min-h-screen md:ml-64 xl:mr-80">
           <div className="w-full px-2 md:px-8 pt-8">
             <Breadcrumbs />
           </div>
-          <main className="flex-1 w-full max-w-4xl mx-auto px-4 md:px-8 pt-4 pb-8">
+          <main className="w-full max-w-4xl mx-auto px-4 md:px-8 pt-4 pb-8">
             {children}
           </main>
         </div>
-        <RightSidebar recentPosts={recentPosts} songUrl={songUrl} />
       </div>
     </ThemeProvider>
   )

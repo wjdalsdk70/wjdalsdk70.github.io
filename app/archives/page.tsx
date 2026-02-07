@@ -18,8 +18,8 @@ export default function ArchivesPage() {
     .sort((a, b) => b - a)
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-8">Archives</h1>
+    <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
+      <h1>Archives</h1>
       <div className="space-y-8">
         {years.map((year) => (
           <div key={year}>

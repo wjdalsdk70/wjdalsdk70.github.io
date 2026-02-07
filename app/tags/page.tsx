@@ -5,8 +5,8 @@ export default function TagsPage() {
   const tags = getAllTags()
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-8">Tags</h1>
+    <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
+      <h1>Tags</h1>
       <div className="flex flex-wrap gap-3">
         {tags.map((tag) => {
           const posts = getPostsByTag(tag)

@@ -4,6 +4,7 @@ export const siteConfig = {
   title: 'JM BLOG',
   tagline: '개발 블로그',
   avatar: avatarImage,
+  aboutUrl: '/about.pdf',
   songUrl:
     'https://www.youtube.com/watch?v=E1rqAcMr-ps&list=RDE1rqAcMr-ps&start_radio=1',
   social: {

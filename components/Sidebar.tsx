@@ -20,7 +20,7 @@ export default function Sidebar() {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <aside className="hidden md:flex w-64 min-h-screen bg-[var(--sidebar-bg)] flex-col px-8 pt-8 pb-4 border-r border-[var(--border)] sticky top-0 h-screen overflow-y-auto">
+    <aside className="hidden md:flex w-64 bg-[var(--sidebar-bg)] flex-col px-8 pt-8 pb-4 border-r border-[var(--border)] fixed inset-y-0 left-0 overflow-y-auto">
       <header className="w-full mb-8">
         <Link href="/" className="block mb-4">
           <div className="w-28 h-28 rounded-full bg-gray-300 dark:bg-gray-600 mb-4 overflow-hidden flex items-center justify-center mx-auto">

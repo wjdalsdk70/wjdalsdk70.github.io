@@ -5,8 +5,8 @@ export default function CategoriesPage() {
   const categories = getAllCategories()
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-8">Categories</h1>
+    <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
+      <h1>Categories</h1>
       <div className="space-y-6">
         {categories.map((category) => {
           const posts = getPostsByCategory(category)
