@@ -29,14 +29,10 @@ export default function Breadcrumbs() {
     }
   })
 
-  // For post detail pages, show: Home / Categories / <Category> / <Title>
-  // Category is derived from folder name via slug prefix when using folder-based slugs.
+  // For post detail pages, show: Home / <filename>
   if (segments[0] === 'posts' && segments[1]) {
     const slug = decodeURIComponent(segments[1])
-    const label = formatSegment(slug)
-    const nextCrumbs = [{ href: '/categories', label: 'Categories' }]
-    nextCrumbs.push({ href: `/posts/${slug}`, label })
-    crumbs = nextCrumbs
+    crumbs = [{ href: `/posts/${slug}`, label: slug }]
   }
 
   return (
