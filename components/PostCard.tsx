@@ -12,7 +12,7 @@ interface PostCardProps {
 export default function PostCard({ post }: PostCardProps) {
   return (
     <article className="card bg-[var(--card-bg)] border border-[var(--border)] rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-      <Link href={`/posts/${post.slug}`} className="block">
+      <Link href={`/posts/${encodeURIComponent(post.slug)}`} className="block">
         <div className="flex flex-col md:flex-row-reverse">
           {post.image && (
             <div className="md:w-2/5">

@@ -39,7 +39,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag?: stri
             {posts.map((post) => (
               <li key={post.slug} className="flex items-center gap-3">
                 <span className="text-[var(--text-muted)]">•</span>
-                <a href={`/posts/${post.slug}`} className="text-blue-600 hover:underline">
+                <a href={`/posts/${encodeURIComponent(post.slug)}`} className="text-blue-600 hover:underline">
                   {post.title}
                 </a>
                 <span

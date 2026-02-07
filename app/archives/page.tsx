@@ -44,7 +44,7 @@ export default function ArchivesPage() {
                             {isValid ? format(d, 'dd MMM') : ''}
                           </time>
                           <Link
-                            href={`/posts/${post.slug}`}
+                            href={`/posts/${encodeURIComponent(post.slug)}`}
                             className="text-blue-600 hover:underline"
                           >
                             {post.title}

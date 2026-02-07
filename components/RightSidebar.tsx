@@ -41,7 +41,7 @@ export default function RightSidebar({ recentPosts, songUrl }: RightSidebarProps
           {recentPosts.map((post) => (
             <li key={post.slug} className="flex flex-col gap-1">
               <Link
-                href={`/posts/${post.slug}`}
+                href={`/posts/${encodeURIComponent(post.slug)}`}
                 className="text-sm font-medium hover:underline"
               >
                 {post.title}
