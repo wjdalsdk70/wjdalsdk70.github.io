@@ -71,6 +71,11 @@ export default function PostSearch({ posts }: PostSearchProps) {
       </div>
 
       <div id="post-list" className="space-y-6">
+        <div className="flex items-center gap-3 text-xs uppercase tracking-wider text-[var(--text-muted)]">
+          <span className="h-px flex-1 bg-[var(--border)]" />
+          <span>Recent Posts</span>
+          <span className="h-px flex-1 bg-[var(--border)]" />
+        </div>
         {filtered.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}
