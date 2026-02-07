@@ -64,6 +64,8 @@ export function getAllPosts(): Post[] {
 export function getPostsByCategory(category: string): Post[] {
   return getAllPosts().filter(post => 
     post.categories?.some(cat => 
+      typeof cat === 'string' &&
+      cat.trim() !== '' &&
       cat.toLowerCase() === category.toLowerCase()
     )
   )
@@ -72,6 +74,8 @@ export function getPostsByCategory(category: string): Post[] {
 export function getPostsByTag(tag: string): Post[] {
   return getAllPosts().filter(post => 
     post.tags?.some(t => 
+      typeof t === 'string' &&
+      t.trim() !== '' &&
       t.toLowerCase() === tag.toLowerCase()
     )
   )
@@ -81,7 +85,12 @@ export function getAllCategories(): string[] {
   const posts = getAllPosts()
   const categories = new Set<string>()
   posts.forEach(post => {
-    post.categories?.forEach(cat => categories.add(cat))
+    post.categories?.forEach(cat => {
+      if (typeof cat !== 'string') return
+      const trimmed = cat.trim()
+      if (trimmed === '') return
+      categories.add(trimmed)
+    })
   })
   return Array.from(categories).sort()
 }
@@ -90,7 +99,12 @@ export function getAllTags(): string[] {
   const posts = getAllPosts()
   const tags = new Set<string>()
   posts.forEach(post => {
-    post.tags?.forEach(tag => tags.add(tag))
+    post.tags?.forEach(tag => {
+      if (typeof tag !== 'string') return
+      const trimmed = tag.trim()
+      if (trimmed === '') return
+      tags.add(trimmed)
+    })
   })
   return Array.from(tags).sort()
 }

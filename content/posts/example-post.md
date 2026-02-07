@@ -6,7 +6,7 @@ description: >
 author: 이정민
 date: 2024-01-01 20:55:00 +0900
 categories: [Blogging, Tutorial]
-tags: [getting started]
+tags: [getting started, demo, temp, sample]
 pin: true
 ---
 

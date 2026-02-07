@@ -9,10 +9,18 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function TagPage({ params }: { params: { tag: string } }) {
+export default function TagPage({ params }: { params: { tag?: string } }) {
+  if (!params?.tag) {
+    notFound()
+  }
+  const tagParam = params.tag
+
   const tags = getAllTags()
   const tag = tags.find(
-    t => t.toLowerCase() === params.tag.toLowerCase()
+    t =>
+      typeof t === 'string' &&
+      t.trim() !== '' &&
+      t.toLowerCase() === tagParam.toLowerCase()
   )
 
   if (!tag) {
