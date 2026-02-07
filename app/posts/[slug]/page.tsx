@@ -31,7 +31,17 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           </p>
         )}
 
-        <div className="text-[var(--text-muted)] mb-6" />
+        <div className="text-[var(--text-muted)] mb-6">
+          {(() => {
+            const d = post.date ? new Date(post.date) : null
+            const isValid = d && !Number.isNaN(d.getTime())
+            return isValid ? (
+              <span className="text-sm">
+                {format(d, 'yyyy년 MM월 dd일 HH:mm')}
+              </span>
+            ) : null
+          })()}
+        </div>
 
         {post.image && (
           <div className="my-6">

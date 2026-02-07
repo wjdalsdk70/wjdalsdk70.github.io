@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { siteConfig } from '@/siteConfig'
 
 function formatSegment(segment: string) {
   return segment
@@ -30,24 +29,12 @@ export default function Breadcrumbs() {
     }
   })
 
-  // If we're on a post detail page, show: Home / Categories / <Category> / <Title>
+  // For post detail pages, show: Home / Categories / <Category> / <Title>
+  // Category is derived from folder name via slug prefix when using folder-based slugs.
   if (segments[0] === 'posts' && segments[1]) {
     const slug = decodeURIComponent(segments[1])
-    const label = siteConfig.postTitleMap?.[slug] ?? formatSegment(slug)
-    const category =
-      siteConfig.postCategoryMap?.[slug] ??
-      siteConfig.postDefaultCategory ??
-      null
-
-    const nextCrumbs = [
-      { href: '/categories', label: 'Categories' },
-    ]
-    if (category) {
-      nextCrumbs.push({
-        href: `/categories/${category.toLowerCase()}`,
-        label: category,
-      })
-    }
+    const label = formatSegment(slug)
+    const nextCrumbs = [{ href: '/categories', label: 'Categories' }]
     nextCrumbs.push({ href: `/posts/${slug}`, label })
     crumbs = nextCrumbs
   }

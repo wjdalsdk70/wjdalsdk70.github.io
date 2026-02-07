@@ -20,7 +20,4 @@ export const siteConfig = {
     { name: 'CATEGORIES', href: '/categories' },
     { name: 'TAGS', href: '/tags' },
   ],
-  postDefaultCategory: 'be',
-  postCategoryMap: {},
-  postTitleMap: {},
 } as const

@@ -46,9 +46,15 @@ export default function RightSidebar({ recentPosts, songUrl }: RightSidebarProps
               >
                 {post.title}
               </Link>
-              <time className="text-xs text-[var(--text-muted)]" dateTime={post.date || undefined}>
-                {post.date ? format(new Date(post.date), 'yyyy.MM.dd') : ''}
-              </time>
+              {(() => {
+                const d = post.date ? new Date(post.date) : null
+                const isValid = d && !Number.isNaN(d.getTime())
+                return (
+                  <time className="text-xs text-[var(--text-muted)]" dateTime={isValid ? d.toISOString() : undefined}>
+                    {isValid ? format(d, 'yyyy.MM.dd') : ''}
+                  </time>
+                )
+              })()}
             </li>
           ))}
           {recentPosts.length === 0 && (

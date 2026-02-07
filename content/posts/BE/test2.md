@@ -1,9 +1,9 @@
 ---
-title: DevOps 2024-01-01
-description: DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다. DevOps 관련 정리 글입니다.
-date: 2024-01-01
-categories: [DevOps]
-tags: []
+title: Spring Boot 사용법
+description: BE 관련 정리 글입니다.
+date: 2024-01-02 09:00:00 +0900
+categories: [BE]
+tags: [Spring Boot]
 ---
 
 ## Welcome
@@ -46,5 +46,3 @@ function hello() {
   console.log('Hello, World!')
 }
 ```
-
-Enjoy writing!

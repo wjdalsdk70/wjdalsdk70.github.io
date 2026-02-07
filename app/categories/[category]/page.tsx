@@ -56,9 +56,15 @@ export default async function CategoryPage({
                   className="flex-1 border-b border-dotted border-[var(--border)]"
                   aria-hidden="true"
                 />
-                <time className="text-sm text-[var(--text-muted)]" dateTime={post.date || undefined}>
-                  {post.date ? format(new Date(post.date), 'MMM d, yyyy') : ''}
-                </time>
+                {(() => {
+                  const d = post.date ? new Date(post.date) : null
+                  const isValid = d && !Number.isNaN(d.getTime())
+                  return (
+                    <time className="text-sm text-[var(--text-muted)]" dateTime={isValid ? d.toISOString() : undefined}>
+                      {isValid ? format(d, 'MMM d, yyyy') : ''}
+                    </time>
+                  )
+                })()}
               </li>
             ))}
           </ul>

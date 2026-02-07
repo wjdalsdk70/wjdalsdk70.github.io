@@ -1,9 +1,9 @@
 ---
-title: FE 2024-01-03
-description: FE 관련 정리 글입니다.
-date: 2024-01-03
-categories: [FE]
-tags: []
+title: LangChain 사용법
+description: AX 관련 정리 글입니다.
+date: 2024-01-23 09:00:00 +0900
+categories: [AX]
+tags: [LangChain]
 ---
 
 ## Welcome
@@ -46,5 +46,3 @@ function hello() {
   console.log('Hello, World!')
 }
 ```
-
-Enjoy writing!

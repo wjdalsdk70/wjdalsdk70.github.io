@@ -1,9 +1,9 @@
 ---
-title: BE 2024-01-02
-description: BE 관련 정리 글입니다.
-date: 2024-01-02
-categories: [BE]
-tags: []
+title: NextJS 사용법
+description: FE 관련 정리 글입니다.
+date: 2024-01-03 09:00:00 +0900
+categories: [FE]
+tags: [NextJS]
 ---
 
 ## Welcome
@@ -46,5 +46,3 @@ function hello() {
   console.log('Hello, World!')
 }
 ```
-
-Enjoy writing!

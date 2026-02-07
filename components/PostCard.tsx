@@ -34,12 +34,18 @@ export default function PostCard({ post }: PostCardProps) {
 
             <div className="mt-auto flex items-center justify-between text-sm text-[var(--text-muted)]">
               <div className="flex items-center gap-4">
-                <span className="flex items-center gap-1">
+                {(() => {
+                  const d = post.date ? new Date(post.date) : null
+                  const isValid = d && !Number.isNaN(d.getTime())
+                  return (
+                    <span className="flex items-center gap-1">
                   <CalendarIcon className="w-4 h-4 text-[var(--text-muted)]" />
-                  <time dateTime={post.date || undefined}>
-                    {post.date ? format(new Date(post.date), 'yyyy년 MM월 dd일') : ''}
+                  <time dateTime={isValid ? d.toISOString() : undefined}>
+                    {isValid ? format(d, 'yyyy년 MM월 dd일') : ''}
                   </time>
                 </span>
+                  )
+                })()}
                 {post.categories && post.categories.length > 0 && (
                   <span className="flex items-center gap-1">
                     <FolderIcon className="w-4 h-4 text-[var(--text-muted)]" />
