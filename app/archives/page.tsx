@@ -20,36 +20,42 @@ export default function ArchivesPage() {
   return (
     <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
       <h1>Archives</h1>
-      <div className="space-y-8">
+      <div className="not-prose space-y-10">
         {years.map((year) => (
-          <div key={year}>
-            <h2 className="text-2xl font-semibold mb-4">{year}</h2>
-            <ul className="space-y-4">
-              {postsByYear[year].map((post) => (
-                <li key={post.slug} className="flex items-center gap-3">
-                  <span className="text-[var(--text-muted)]">•</span>
-                  <Link
-                    href={`/posts/${post.slug}`}
-                    className="text-blue-600 hover:underline"
-                  >
-                    {post.title}
-                  </Link>
-                  <span
-                    className="flex-1 border-b border-dotted border-[var(--border)]"
-                    aria-hidden="true"
-                  />
-                  {(() => {
+          <div key={year} className="relative">
+            <div className="flex items-start gap-10">
+              <div className="w-20 text-2xl font-semibold text-[var(--text-muted)]">
+                {year}
+              </div>
+              <div className="relative flex-1 pl-6">
+                <div className="absolute left-2 top-1.5 bottom-1.5 w-px bg-[var(--border)]" />
+                <ul className="space-y-5">
+                  {postsByYear[year].map((post) => {
                     const d = post.date ? new Date(post.date) : null
                     const isValid = d && !Number.isNaN(d.getTime())
                     return (
-                      <time className="text-sm text-[var(--text-muted)]" dateTime={isValid ? d.toISOString() : undefined}>
-                        {isValid ? format(d, 'MMM d, yyyy') : ''}
-                      </time>
+                      <li key={post.slug} className="relative pl-6">
+                        <span className="absolute left-0 top-2 h-2 w-2 rounded-full bg-[var(--text-muted)]" />
+                        <div className="flex items-center gap-4">
+                          <time
+                            className="w-16 text-sm text-[var(--text-muted)]"
+                            dateTime={isValid ? d.toISOString() : undefined}
+                          >
+                            {isValid ? format(d, 'dd MMM') : ''}
+                          </time>
+                          <Link
+                            href={`/posts/${post.slug}`}
+                            className="text-blue-600 hover:underline"
+                          >
+                            {post.title}
+                          </Link>
+                        </div>
+                      </li>
                     )
-                  })()}
-                </li>
-              ))}
-            </ul>
+                  })}
+                </ul>
+              </div>
+            </div>
           </div>
         ))}
       </div>

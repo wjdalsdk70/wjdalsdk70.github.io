@@ -1,7 +1,7 @@
 ---
 title: LangChain 사용법
 description: AX 관련 정리 글입니다.
-date: 2024-01-23 09:00:00 +0900
+date: 2025-01-23 09:00:00 +0900
 categories: [AX]
 tags: [LangChain]
 ---

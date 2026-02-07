@@ -54,6 +54,12 @@ export default function PostCard({ post }: PostCardProps) {
                     </span>
                   </span>
                 )}
+                {post.tags && post.tags.length > 0 && (
+                  <span className="flex items-center gap-1 text-[var(--text-muted)]">
+                    <span className="text-xs">#</span>
+                    <span>{post.tags.join(', ')}</span>
+                  </span>
+                )}
               </div>
             </div>
           </div>
