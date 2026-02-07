@@ -33,3 +33,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 # next-env.d.ts는 Next.js가 자동 생성하므로 포함해야 함
+
+# Obsidian
+.obsidian/**
