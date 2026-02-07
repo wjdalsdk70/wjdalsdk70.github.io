@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { siteConfig } from '@/siteConfig'
 
 function formatSegment(segment: string) {
   return segment
@@ -9,17 +10,47 @@ function formatSegment(segment: string) {
     .replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
+function formatRaw(segment: string) {
+  return decodeURIComponent(segment)
+}
+
 export default function Breadcrumbs() {
   const pathname = usePathname()
   const segments = pathname?.split('/').filter(Boolean) ?? []
 
-  const crumbs = segments.map((segment, index) => {
+  let crumbs = segments.map((segment, index) => {
     const href = '/' + segments.slice(0, index + 1).join('/')
+    const isCategorySegment = segments[index - 1] === 'categories'
+    const isTagSegment = segments[index - 1] === 'tags'
     return {
       href,
-      label: formatSegment(decodeURIComponent(segment)),
+      label: isCategorySegment || isTagSegment
+        ? formatRaw(segment)
+        : formatSegment(decodeURIComponent(segment)),
     }
   })
+
+  // If we're on a post detail page, show: Home / Categories / <Category> / <Title>
+  if (segments[0] === 'posts' && segments[1]) {
+    const slug = decodeURIComponent(segments[1])
+    const label = siteConfig.postTitleMap?.[slug] ?? formatSegment(slug)
+    const category =
+      siteConfig.postCategoryMap?.[slug] ??
+      siteConfig.postDefaultCategory ??
+      null
+
+    const nextCrumbs = [
+      { href: '/categories', label: 'Categories' },
+    ]
+    if (category) {
+      nextCrumbs.push({
+        href: `/categories/${category.toLowerCase()}`,
+        label: category,
+      })
+    }
+    nextCrumbs.push({ href: `/posts/${slug}`, label })
+    crumbs = nextCrumbs
+  }
 
   return (
     <nav aria-label="Breadcrumb" className="text-sm">

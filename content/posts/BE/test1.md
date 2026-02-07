@@ -1,13 +1,9 @@
 ---
-title: Getting Started
-description: >
-  Get started with this blog in this comprehensive overview.
-  You will learn how to install, configure, and use your first blog post.
-author: 이정민
-date: 2024-01-01 20:55:00 +0900
-categories: [Blogging, Tutorial]
-tags: [getting started, demo, temp, sample]
-pin: true
+title: BE 2024-01-02
+description: BE 관련 정리 글입니다.
+date: 2024-01-02
+categories: [BE]
+tags: []
 ---
 
 ## Welcome

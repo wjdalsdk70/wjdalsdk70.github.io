@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation'
 import { getPostsByCategory, getAllCategories } from '@/lib/posts'
-import PostCard from '@/components/PostCard'
+import { format } from 'date-fns'
 
 export async function generateStaticParams() {
   const categories = getAllCategories()
   return categories.map((category) => ({
-    // category가 undefined거나 null일 경우를 대비해 안전하게 처리
-    category: category?.toLowerCase() || 'unknown',
+    // keep original casing for folder-based category names
+    category: category || 'unknown',
   }))
 }
 
@@ -41,13 +41,27 @@ export default async function CategoryPage({
   const posts = getPostsByCategory(category)
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-8 capitalize">Category: {category}</h1>
-      <div className="space-y-6">
+    <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
+      <h1>{category}</h1>
+      <div className="not-prose">
         {posts.length > 0 ? (
-          posts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))
+          <ul className="space-y-4">
+            {posts.map((post) => (
+              <li key={post.slug} className="flex items-center gap-3">
+                <span className="text-[var(--text-muted)]">•</span>
+                <a href={`/posts/${post.slug}`} className="text-blue-600 hover:underline">
+                  {post.title}
+                </a>
+                <span
+                  className="flex-1 border-b border-dotted border-[var(--border)]"
+                  aria-hidden="true"
+                />
+                <time className="text-sm text-[var(--text-muted)]" dateTime={post.date || undefined}>
+                  {post.date ? format(new Date(post.date), 'MMM d, yyyy') : ''}
+                </time>
+              </li>
+            ))}
+          </ul>
         ) : (
           <p>이 카테고리에 작성된 글이 없습니다.</p>
         )}

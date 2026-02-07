@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { format } from 'date-fns'
 import { Post } from '@/lib/posts'
+import { CalendarIcon, FolderIcon } from './icons'
 
 interface PostCardProps {
   post: Post
@@ -34,14 +35,14 @@ export default function PostCard({ post }: PostCardProps) {
             <div className="mt-auto flex items-center justify-between text-sm text-[var(--text-muted)]">
               <div className="flex items-center gap-4">
                 <span className="flex items-center gap-1">
-                  <span>📅</span>
-                  <time dateTime={post.date}>
-                    {format(new Date(post.date), 'yyyy년 MM월 dd일')}
+                  <CalendarIcon className="w-4 h-4 text-[var(--text-muted)]" />
+                  <time dateTime={post.date || undefined}>
+                    {post.date ? format(new Date(post.date), 'yyyy년 MM월 dd일') : ''}
                   </time>
                 </span>
                 {post.categories && post.categories.length > 0 && (
                   <span className="flex items-center gap-1">
-                    <span>📁</span>
+                    <FolderIcon className="w-4 h-4 text-[var(--text-muted)]" />
                     <span className="categories">
                       {post.categories.join(', ')}
                     </span>

@@ -24,18 +24,23 @@ export default function ArchivesPage() {
         {years.map((year) => (
           <div key={year}>
             <h2 className="text-2xl font-semibold mb-4">{year}</h2>
-            <ul className="space-y-2">
+            <ul className="space-y-4">
               {postsByYear[year].map((post) => (
-                <li key={post.slug} className="flex items-center gap-4">
-                  <time className="text-[var(--text-muted)] text-sm min-w-[100px]">
-                    {format(new Date(post.date), 'MM월 dd일')}
-                  </time>
+                <li key={post.slug} className="flex items-center gap-3">
+                  <span className="text-[var(--text-muted)]">•</span>
                   <Link
                     href={`/posts/${post.slug}`}
-                    className="hover:underline"
+                    className="text-blue-600 hover:underline"
                   >
                     {post.title}
                   </Link>
+                  <span
+                    className="flex-1 border-b border-dotted border-[var(--border)]"
+                    aria-hidden="true"
+                  />
+                  <time className="text-sm text-[var(--text-muted)]" dateTime={post.date || undefined}>
+                    {post.date ? format(new Date(post.date), 'MMM d, yyyy') : ''}
+                  </time>
                 </li>
               ))}
             </ul>

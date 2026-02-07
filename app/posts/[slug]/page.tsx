@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { format } from 'date-fns'
 import { getPostBySlug, getAllPosts } from '@/lib/posts'
 import ReactMarkdown from 'react-markdown'
@@ -20,8 +21,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   }
 
   return (
-    <article className="px-4">
-      <header className="mb-8">
+    <article className="prose prose-lg dark:prose-invert max-w-none -mt-16">
+      <header className="not-prose mb-8">
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
         
         {post.description && (
@@ -30,22 +31,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           </p>
         )}
 
-        <div className="text-[var(--text-muted)] mb-6">
-          <div className="flex items-center gap-4 mb-4">
-            <span>
-              <span className="mr-2">작성일:</span>
-              <time dateTime={post.date}>
-                {format(new Date(post.date), 'yyyy년 MM월 dd일')}
-              </time>
-            </span>
-          </div>
-
-          <div className="flex justify-between items-center">
-            <span>
-              작성자: <em>{post.author || '이정민'}</em>
-            </span>
-          </div>
-        </div>
+        <div className="text-[var(--text-muted)] mb-6" />
 
         {post.image && (
           <div className="my-6">
@@ -58,13 +44,13 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         )}
       </header>
 
-      <div className="prose prose-lg dark:prose-invert max-w-none">
+      <div>
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {post.content}
         </ReactMarkdown>
       </div>
 
-      <div className="mt-12 pt-6 border-t border-[var(--border)]">
+      <div className="not-prose mt-12 pt-6 border-t border-[var(--border)]">
         {post.categories && post.categories.length > 0 && (
           <div className="mb-4 text-[var(--text-muted)]">
             <span className="mr-2">📁</span>
