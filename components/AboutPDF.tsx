@@ -3,10 +3,6 @@
 import { useState, useEffect } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
 
-// CSS 필수 임포트
-import 'react-pdf/dist/Page/AnnotationLayer.css'
-import 'react-pdf/dist/Page/TextLayer.css'
-
 // Worker 설정: 버전 호환성을 위해 유동적인 경로 설정
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 
@@ -42,8 +38,8 @@ export default function AboutPDF({ fileUrl }: AboutPDFProps) {
             <Page
               key={`page_${index + 1}`}
               pageNumber={index + 1}
-              renderTextLayer={true}
-              renderAnnotationLayer={true}
+              renderTextLayer={false}
+              renderAnnotationLayer={false}
               // 반응형 너비 설정 (모바일 대응)
               width={Math.min(window.innerWidth - 64, 800)}
               className="shadow-lg mb-6"

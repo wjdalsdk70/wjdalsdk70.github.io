@@ -5,6 +5,7 @@ export const siteConfig = {
   tagline: '개발 블로그',
   avatar: avatarImage,
   aboutUrl: '/about.pdf',
+  portfolioUrl: '/portfolio.pdf',
   songUrl:
     'https://www.youtube.com/watch?v=E1rqAcMr-ps&list=RDE1rqAcMr-ps&start_radio=1',
   social: {

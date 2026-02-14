@@ -16,19 +16,24 @@ function toPdfUrl(url?: string) {
 }
 
 export default function AboutPage() {
-  const pdfSrc = toPdfUrl(siteConfig.aboutUrl)
+  const resumePdfSrc = toPdfUrl(siteConfig.aboutUrl)
+  const portfolioPdfSrc = toPdfUrl(siteConfig.portfolioUrl)
+
+  if (!resumePdfSrc && !portfolioPdfSrc) {
+    return (
+      <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
+        <h1>About</h1>
+        <p>PDF 경로가 없습니다.</p>
+      </div>
+    )
+  }
 
   return (
     <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
       <h1>About</h1>
-      {pdfSrc ? (
-        <div className="not-prose">
-          {/* 이제 이 컴포넌트는 오직 브라우저에서만 실행됩니다. */}
-          <AboutClient fileUrl={pdfSrc} />
-        </div>
-      ) : (
-        <p>PDF 경로가 없습니다.</p>
-      )}
+      <div className="not-prose">
+        <AboutClient resumeUrl={resumePdfSrc} portfolioUrl={portfolioPdfSrc} />
+      </div>
     </div>
   )
 }
