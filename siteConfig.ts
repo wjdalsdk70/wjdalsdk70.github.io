@@ -3,6 +3,7 @@ import avatarImage from '@/assets/avatar.png'
 export const siteConfig = {
   title: 'JM BLOG',
   tagline: '개발 블로그',
+  siteUrl: 'https://wjdalsdk70.github.io',
   avatar: avatarImage,
   aboutUrl: '/about.pdf',
   portfolioUrl: '/portfolio.pdf',

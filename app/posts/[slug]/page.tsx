@@ -1,15 +1,52 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { format } from 'date-fns'
 import { getPostBySlug, getAllPosts } from '@/lib/posts'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { siteConfig } from '@/siteConfig'
 
 export async function generateStaticParams() {
   const posts = getAllPosts()
   return posts.map((post) => ({
     slug: encodeURIComponent(post.slug),
   }))
+}
+
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> }
+): Promise<Metadata> {
+  const { slug } = await params
+  const decodedSlug = decodeURIComponent(slug)
+  const post = getPostBySlug(decodedSlug)
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      robots: { index: false, follow: false },
+    }
+  }
+
+  const canonicalPath = `/posts/${encodeURIComponent(post.slug)}`
+
+  return {
+    title: post.title,
+    description: post.description || `${siteConfig.title}의 포스트`,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      type: 'article',
+      url: `${siteConfig.siteUrl}${canonicalPath}`,
+      title: post.title,
+      description: post.description || `${siteConfig.title}의 포스트`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  }
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
