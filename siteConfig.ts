@@ -12,6 +12,7 @@ export const siteConfig = {
     name: '이정민',
     email: 'dlwjdals7073@gamil.com',
     github: 'wjdalsdk70',
+    linkedin: 'https://www.linkedin.com/in/jm-info',
     twitter: 'twitter_username',
   },
   nav: [
