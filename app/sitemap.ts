@@ -2,7 +2,9 @@ import type { MetadataRoute } from 'next'
 import { siteConfig } from '@/siteConfig'
 import { getAllCategories, getAllPosts, getAllTags } from '@/lib/posts'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = 'force-static'
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = ['', '/about', '/archives', '/categories', '/tags']
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${siteConfig.siteUrl}${route}`,

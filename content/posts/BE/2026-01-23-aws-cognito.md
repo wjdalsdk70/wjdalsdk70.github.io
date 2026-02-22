@@ -1,13 +1,14 @@
 ---
 title: AWS Cognito + Spring Security 6
 description: "AWS Cognito + Spring Security 6: 완벽한 인증/인가 모듈 구축 가이드"
-date: 2026-01-23 09:00:00 +0900
+date: "2026-01-23T09:00:00+09:00"
 categories:
   - BE
 tags:
   - Cognito
   - SpringBoot
 ---
+![AWS Cognito + Spring Security 6 아키텍처](https://github.com/user-attachments/assets/521bc688-2db3-4da2-9fe6-287c149488ae)
 
 ### 🏗️ 핵심 아키텍처 포인트
 
