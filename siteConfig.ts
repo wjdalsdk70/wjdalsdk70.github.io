@@ -1,8 +1,8 @@
 import avatarImage from '@/assets/avatar.png'
 
 export const siteConfig = {
-  title: 'JM BLOG',
-  tagline: '개발 블로그',
+  title: '이정민 포트폴리오',
+  tagline: '문제를 구조화하고 제품으로 구현하는 개발자',
   siteUrl: 'https://wjdalsdk70.github.io',
   avatar: avatarImage,
   aboutUrl: '/about.pdf',
@@ -17,10 +17,9 @@ export const siteConfig = {
     twitter: 'twitter_username',
   },
   nav: [
-    { name: 'HOME', href: '/' },
-    { name: 'ABOUT', href: '/about' },
-    { name: 'ARCHIVES', href: '/archives' },
-    { name: 'CATEGORIES', href: '/categories' },
-    { name: 'TAGS', href: '/tags' },
+    { name: 'Intro', href: '/#intro' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Experience', href: '/#experience' },
+    { name: 'Contact', href: '/#contact' },
   ],
 } as const

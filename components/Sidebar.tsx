@@ -7,13 +7,17 @@ import Image from 'next/image'
 import { HomeIcon, AboutIcon, ArchivesIcon, CategoriesIcon, TagsIcon, MoonIcon, SunIcon } from './icons'
 import { siteConfig } from '@/siteConfig'
 
-const navIconMap = {
+const navIconMap: Record<string, typeof HomeIcon> = {
   '/': HomeIcon,
+  '/#intro': HomeIcon,
   '/about': AboutIcon,
+  '/#projects': ArchivesIcon,
   '/archives': ArchivesIcon,
+  '/#experience': CategoriesIcon,
   '/categories': CategoriesIcon,
+  '/#contact': AboutIcon,
   '/tags': TagsIcon,
-} as const
+}
 
 export default function Sidebar() {
   const pathname = usePathname()
@@ -49,9 +53,10 @@ export default function Sidebar() {
       <nav className="flex-1 w-full">
         <ul className="space-y-2">
           {siteConfig.nav.map((item) => {
-            const isActive = pathname === item.href ||
-              (item.href !== '/' && pathname?.startsWith(item.href))
-            const Icon = navIconMap[item.href as keyof typeof navIconMap]
+            const href: string = item.href
+            const isActive = pathname === href ||
+              (href !== '/' && pathname?.startsWith(href))
+            const Icon = navIconMap[href]
             return (
               <li key={item.href}>
                 <Link

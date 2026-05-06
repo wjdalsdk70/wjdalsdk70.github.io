@@ -16,13 +16,12 @@ npm install
 npm run dev
 ```
 
-브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 확인하세요.
+브라우저에서 [http://localhost:3001](http://localhost:3001)을 열어 확인하세요.
 
 ### 빌드
 
 ```bash
 npm run build
-npm start
 ```
 
 ## 구조

@@ -78,8 +78,8 @@ Next.js 13+ App Router를 사용하는 페이지와 레이아웃입니다.
 
 ### `/public`
 Next.js가 자동으로 서빙하는 정적 파일입니다.
-- `/favicon.ico` → `http://localhost:3000/favicon.ico`
-- `/robots.txt` → `http://localhost:3000/robots.txt`
+- `/favicon.ico` → `http://localhost:3001/favicon.ico`
+- `/robots.txt` → `http://localhost:3001/robots.txt`
 
 ### `/types`
 TypeScript 타입 정의 파일입니다.
