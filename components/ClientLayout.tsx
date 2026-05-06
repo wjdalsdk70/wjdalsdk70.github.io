@@ -32,12 +32,6 @@ function PortfolioShell({ children }: { children: React.ReactNode }) {
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/archives"
-              className="rounded px-3 py-2 text-sm font-medium text-[var(--text-muted)] transition hover:bg-[var(--nav-hover-bg)] hover:text-[var(--foreground)]"
-            >
-              Blog
-            </Link>
           </nav>
 
           <button

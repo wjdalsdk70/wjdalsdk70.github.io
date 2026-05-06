@@ -703,6 +703,17 @@ a {
   letter-spacing: 0;
 }
 
+.project-card a.project-link {
+  color: var(--accent-strong);
+  border-color: var(--accent);
+  font-weight: 700;
+  transition: background 0.15s;
+}
+
+.project-card a.project-link:hover {
+  background: var(--accent-soft);
+}
+
 .contact-actions a::after {
   content: '↗';
   font-size: 0.85rem;

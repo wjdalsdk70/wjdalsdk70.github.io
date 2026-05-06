@@ -3,64 +3,65 @@ import Link from 'next/link'
 import { siteConfig } from '@/siteConfig'
 
 const highlights = [
-  { value: 'Frontend', label: '사용자 흐름을 기준으로 화면과 상태를 설계합니다.' },
-  { value: 'Backend', label: '도메인과 API 경계를 명확하게 나눠 구현합니다.' },
-  { value: 'Cloud', label: '배포, 인증, 운영 환경까지 제품 단위로 연결합니다.' },
+  { value: 'Backend', label: 'MSA 기반 서비스 설계와 안정적인 API 구현에 집중합니다.' },
+  { value: 'Infra · DevOps', label: 'CI/CD 파이프라인과 Blue-Green 배포로 운영 안정성을 확보합니다.' },
+  { value: 'AI Pipeline', label: 'STT·LLM 기반 파이프라인을 설계하고 데이터 처리를 자동화합니다.' },
 ]
 
 const skills = [
-  'React',
-  'Next.js',
-  'TypeScript',
-  'JavaScript',
-  'Node.js',
+  'Java',
+  'Spring Boot',
+  'Kafka',
+  'MySQL',
+  'Redis',
+  'Docker',
   'AWS',
-  'Cognito',
-  'DevOps',
+  'GitHub Actions',
 ]
 
 const projects = [
   {
-    title: '인증 기반 웹 서비스',
-    type: 'Full-stack',
+    title: 'CareNote',
+    type: 'AI · Healthcare',
     description:
-      'AWS Cognito 기반 인증 흐름과 Next.js 화면 구조를 연결해 로그인 이후의 사용자 경험을 정리한 프로젝트입니다.',
-    points: ['인증 상태 관리', '권한별 화면 분기', '운영 가능한 배포 구조'],
-    stack: ['Next.js', 'TypeScript', 'AWS Cognito'],
+      '음성 기반 간호 진술문 요약 서비스. Kafka 비동기 파이프라인과 LangGraph로 STT→LLM 처리 흐름을 구축하고, 의료 전문 용어 WER을 18.5%에서 6.8%로 개선했습니다.',
+    points: ['Kafka 기반 비동기 AI 파이프라인', 'Pre-signed URL (업로드 4.8s → 3.1s)', '의료 전문 용어 WER 18.5% → 6.8%'],
+    stack: ['Spring Boot', 'FastAPI', 'Kafka', 'LangGraph', 'AWS EKS'],
   },
   {
-    title: '기술 블로그 시스템',
-    type: 'Content Platform',
+    title: 'CareFlow',
+    type: 'MSA · Healthcare',
     description:
-      'Markdown 콘텐츠, 카테고리, 태그, 아카이브를 갖춘 정적 블로그를 설계하고 GitHub Pages 배포 흐름까지 구성했습니다.',
-    points: ['정적 콘텐츠 파이프라인', '검색과 분류 UX', 'SEO 메타데이터'],
-    stack: ['Next.js', 'Markdown', 'GitHub Pages'],
+      '음성 기반 통합 AI 스마트 병원 솔루션. MSA 구조로 200+ API를 구현하고, GitHub Actions CI/CD 최적화로 배포 시간을 25% 단축했습니다.',
+    points: ['MSA · CQRS 아키텍처 설계', 'CI/CD 파이프라인 4분 → 3분 단축', 'Blue-Green 무중단 배포 구조'],
+    stack: ['Spring Boot', 'Kafka', 'MySQL', 'Redis', 'Docker'],
   },
   {
-    title: '포트폴리오 리뉴얼',
-    type: 'Portfolio',
+    title: 'Dev-Pick',
+    type: 'Side Project',
     description:
-      '블로그 중심 구조에서 경력, 프로젝트, 연락 동선이 먼저 보이는 포트폴리오형 사이트로 정보 구조를 재편했습니다.',
-    points: ['첫 화면 메시지 정리', '프로젝트 카드화', '반응형 레이아웃'],
-    stack: ['Next.js', 'Tailwind CSS', 'TypeScript'],
+      '테크 블로그 큐레이션 서비스. 6개 모듈 멀티모듈 아키텍처와 Kafka 기반 수집 파이프라인으로 당근, 토스, 무신사 등 테크 블로그를 자동 수집합니다.',
+    points: ['6개 모듈 멀티모듈 아키텍처', 'Kafka 기반 크롤링 파이프라인', 'Snowflake ID 분산 식별자'],
+    stack: ['Spring Boot', 'Spring Batch', 'Kafka', 'MySQL', 'AWS'],
+    link: 'https://dev-pick.com',
   },
 ]
 
 const experience = [
   {
-    period: 'Now',
-    title: '제품 관점 개발',
-    body: '기능 구현 전에 사용자가 실제로 지나가는 흐름과 데이터의 책임 범위를 먼저 정리합니다.',
+    period: '2025.10',
+    title: '케어마인더 · 백엔드 개발팀 (정규직)',
+    body: 'CareNote·CareForm 백엔드 개발. 멀티 클라우드(NCP, GCP, AWS) 환경 구축 및 Prometheus·Loki·Grafana 기반 모니터링 환경 구성.',
   },
   {
-    period: 'Build',
-    title: '웹 애플리케이션 구현',
-    body: 'React와 Next.js를 중심으로 UI, 라우팅, 콘텐츠 구조, 배포까지 이어지는 작업을 수행합니다.',
+    period: '2024.09',
+    title: '케어마인더 · 백엔드 개발팀 (인턴)',
+    body: 'CareFlow MVP 백엔드 개발. Spring Security + JWT + Redis 인증 구현, STOMP + Redis Pub/Sub 실시간 채팅 기능 구현.',
   },
   {
-    period: 'Operate',
-    title: '클라우드와 운영',
-    body: 'AWS 서비스와 배포 환경을 활용해 로컬 구현이 실제 서비스 형태로 동작하도록 만듭니다.',
+    period: '2024.07',
+    title: '플리트소프트 · AI 개발팀 (인턴)',
+    body: 'FakeKiller MVP 개발. YOLO-World 텍스트 인코더를 이미지 인코더로 교체하는 모델 개선 작업 수행.',
   },
 ]
 
@@ -70,13 +71,14 @@ export default function Home() {
       <section id="intro" className="portfolio-hero">
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow">Developer Portfolio</p>
+            <p className="eyebrow">Backend Developer</p>
             <h1>이정민</h1>
             <p className="hero-lead">{siteConfig.tagline}</p>
             <p className="hero-body">
-              프론트엔드 화면, 백엔드 API, 클라우드 배포를 하나의 제품 흐름으로
-              연결하는 데 집중합니다. 복잡한 요구사항을 작게 나누고, 실제로
-              유지보수 가능한 구조로 구현합니다.
+              서비스의 안정적인 운영을 위해 장애를 예방하고, 문제 발생 시 빠르게
+              원인을 파악하고 대응하는 것을 중요하게 생각합니다. 아키텍처 개선과
+              부하 테스트를 통해 병목을 해소하고, 서비스의 안정적인 운영 기반을
+              구축한 경험이 있습니다.
             </p>
             <div className="hero-actions">
               <a href={siteConfig.portfolioUrl} className="primary-action">
@@ -103,7 +105,7 @@ export default function Home() {
                 <span className="status-dot" />
                 Available for collaboration
               </span>
-              <strong>Web · Product · Cloud</strong>
+              <strong>Backend · Infra · AI</strong>
             </div>
           </div>
         </div>
@@ -156,6 +158,16 @@ export default function Home() {
                   {project.stack.map((tech) => (
                     <span key={tech} className="project-tag">{tech}</span>
                   ))}
+                  {'link' in project && project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-tag project-link"
+                    >
+                      ↗ 서비스 보기
+                    </a>
+                  )}
                 </div>
               </div>
             </article>
@@ -166,7 +178,7 @@ export default function Home() {
       <section id="experience" className="portfolio-section split-section" aria-labelledby="experience-title">
         <div className="section-heading">
           <p className="eyebrow">Experience</p>
-          <h2 id="experience-title">일하는 방식</h2>
+          <h2 id="experience-title">경력</h2>
         </div>
         <div className="timeline">
           {experience.map((item) => (
@@ -191,8 +203,10 @@ export default function Home() {
           <a href={`https://github.com/${siteConfig.social.github}`} target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
+          <a href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
           <Link href="/about">Resume</Link>
-          <Link href="/archives">Blog</Link>
         </div>
       </section>
     </div>
