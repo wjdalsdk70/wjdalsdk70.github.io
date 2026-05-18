@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { FaJava, FaAws } from 'react-icons/fa'
+import { SiSpringboot, SiFastapi, SiApachekafka, SiMysql, SiRedis, SiMongodb, SiDocker, SiGithubactions, SiTerraform, SiNextdotjs } from 'react-icons/si'
 import { siteConfig } from '@/siteConfig'
 import ProjectSection, { type Project } from '@/components/ProjectSection'
 
@@ -10,14 +12,18 @@ const highlights = [
 ]
 
 const skills = [
-  'Java',
-  'Spring Boot',
-  'Kafka',
-  'MySQL',
-  'Redis',
-  'Docker',
-  'AWS',
-  'GitHub Actions',
+  { name: 'Java',           Icon: FaJava,          color: '#E76F00' },
+  { name: 'Spring Boot',    Icon: SiSpringboot,    color: '#6DB33F' },
+  { name: 'FastAPI',        Icon: SiFastapi,       color: '#009688' },
+  { name: 'Kafka',          Icon: SiApachekafka,   color: '#8b8b8b' },
+  { name: 'MySQL',          Icon: SiMysql,         color: '#4479A1' },
+  { name: 'Redis',          Icon: SiRedis,         color: '#DC382D' },
+  { name: 'MongoDB',        Icon: SiMongodb,       color: '#47A248' },
+  { name: 'Docker',         Icon: SiDocker,        color: '#2496ED' },
+  { name: 'AWS',            Icon: FaAws,           color: '#FF9900' },
+  { name: 'GitHub Actions', Icon: SiGithubactions, color: '#2088FF' },
+  { name: 'Terraform',      Icon: SiTerraform,     color: '#7B42BC' },
+  { name: 'Next.js',        Icon: SiNextdotjs,     color: '#8b8b8b' },
 ]
 
 const projects: Project[] = [
@@ -237,7 +243,14 @@ export default function Home() {
         </div>
         <div className="skill-grid">
           {skills.map((skill) => (
-            <span key={skill}>{skill}</span>
+            <div
+              key={skill.name}
+              className="skill-card"
+              style={{ '--brand': skill.color } as React.CSSProperties}
+            >
+              <skill.Icon />
+              <span>{skill.name}</span>
+            </div>
           ))}
         </div>
       </section>

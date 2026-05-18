@@ -429,27 +429,55 @@ a {
 
 .skill-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.75rem;
 }
 
-.skill-grid span {
-  display: grid;
-  min-height: 5.5rem;
-  place-items: center;
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 6rem;
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   background: var(--surface);
-  font-weight: 800;
+  padding: 1.1rem 0.5rem;
   cursor: default;
-  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s;
+  transition: border-color 0.2s, background 0.2s, transform 0.18s;
 }
 
-.skill-grid span:hover {
-  border-color: var(--accent);
+.skill-card:hover {
+  border-color: var(--brand, var(--accent));
   background: var(--accent-soft);
-  color: var(--accent-strong);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+.skill-card svg {
+  width: 1.9rem;
+  height: 1.9rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.skill-card:hover svg {
+  color: var(--brand, var(--accent-strong));
+}
+
+.skill-card span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+
+.skill-card:hover span {
+  color: var(--foreground);
 }
 
 .project-grid {
@@ -598,6 +626,12 @@ a {
   }
 }
 
+@media (max-width: 1100px) {
+  .skill-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 900px) {
   .portfolio-hero {
     padding-top: 4rem;
@@ -646,9 +680,12 @@ a {
     font-size: clamp(3.25rem, 22vw, 5.5rem);
   }
 
-  .highlight-strip,
-  .skill-grid {
+  .highlight-strip {
     grid-template-columns: 1fr;
+  }
+
+  .skill-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .highlight-strip article + article {
