@@ -749,3 +749,141 @@ a {
   font-size: 0.78rem;
   font-weight: 700;
 }
+
+/* ── Project Modal ────────────────────────────────────── */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: modal-fade-in 0.2s ease;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-panel {
+  position: relative;
+  width: min(680px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: modal-slide-up 0.22s ease;
+}
+
+@keyframes modal-slide-up {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.modal-close:hover {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.modal-type {
+  color: var(--accent-strong);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.modal-header h2 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.1rem;
+}
+
+.modal-meta-sep {
+  opacity: 0.4;
+}
+
+.modal-desc {
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+.modal-section h3 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-strong);
+  margin-bottom: 0.75rem;
+}
+
+.modal-section ul {
+  display: grid;
+  gap: 0.5rem;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--foreground);
+}
+
+.modal-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .modal-panel {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.4rem;
+  }
+}
