@@ -24,26 +24,42 @@ const projects = [
     title: 'CareNote',
     type: 'AI · Healthcare',
     description:
-      '음성 기반 간호 진술문 요약 서비스. Kafka 비동기 파이프라인과 LangGraph로 STT→LLM 처리 흐름을 구축하고, 의료 전문 용어 WER을 18.5%에서 6.8%로 개선했습니다.',
-    points: ['Kafka 기반 비동기 AI 파이프라인', 'Pre-signed URL (업로드 4.8s → 3.1s)', '의료 전문 용어 WER 18.5% → 6.8%'],
-    stack: ['Spring Boot', 'FastAPI', 'Kafka', 'LangGraph', 'AWS EKS'],
+      '음성 기반 간호 진술문 요약 서비스. Clova Speech 화자 분리와 LangGraph 기반 STT→LLM 파이프라인을 구축하고, Qdrant 벡터 DB로 의료 용어 정규화 정확도를 60% 이상 향상시켰습니다.',
+    points: ['LangGraph + Qdrant 의료 용어 정규화 파이프라인', 'LangSmith 모니터링으로 WER 18.5% → 6.8%', '채널 상태 7단계 세분화 및 재처리 구조'],
+    stack: ['Spring Boot', 'FastAPI', 'LangGraph', 'Qdrant', 'NCP'],
+  },
+  {
+    title: 'CareForm',
+    type: 'AI · Healthcare',
+    description:
+      '음성 기반 문진 서비스. 32개 웹 API와 @Async 비동기 채널 처리 파이프라인을 구축하고, 멀티 테넌트 병원 크레딧 결제 모델과 JWT+OAuth 인증 체계를 설계했습니다.',
+    points: ['@Async 비동기 채널 처리 파이프라인', 'Pre-signed URL 기반 오디오 업로드', '멀티 테넌트 병원 크레딧 결제 구조'],
+    stack: ['Spring Boot', 'FastAPI', 'MySQL', 'Redis', 'NCP'],
   },
   {
     title: 'CareFlow',
     type: 'MSA · Healthcare',
     description:
-      '음성 기반 통합 AI 스마트 병원 솔루션. MSA 구조로 200+ API를 구현하고, GitHub Actions CI/CD 최적화로 배포 시간을 25% 단축했습니다.',
-    points: ['MSA · CQRS 아키텍처 설계', 'CI/CD 파이프라인 4분 → 3분 단축', 'Blue-Green 무중단 배포 구조'],
-    stack: ['Spring Boot', 'Kafka', 'MySQL', 'Redis', 'Docker'],
+      '음성 기반 통합 AI 스마트 병원 솔루션. 6개 멀티모듈 아키텍처로 200+ API를 구현하고, GitHub Actions CI/CD 최적화로 배포 시간을 4분에서 3분으로 단축했습니다.',
+    points: ['6개 멀티모듈 아키텍처, 200+ API 구현', 'WebSocket(STOMP) + Redis Pub/Sub 실시간 채팅', 'CI/CD 파이프라인 4분 → 3분 단축'],
+    stack: ['Spring Boot', 'MySQL', 'Redis', 'MongoDB', 'Docker'],
   },
   {
     title: 'Dev-Pick',
     type: 'Side Project',
     description:
-      '테크 블로그 큐레이션 서비스. 6개 모듈 멀티모듈 아키텍처와 Kafka 기반 수집 파이프라인으로 당근, 토스, 무신사 등 테크 블로그를 자동 수집합니다.',
-    points: ['6개 모듈 멀티모듈 아키텍처', 'Kafka 기반 크롤링 파이프라인', 'Snowflake ID 분산 식별자'],
-    stack: ['Spring Boot', 'Spring Batch', 'Kafka', 'MySQL', 'AWS'],
+      '테크 블로그 큐레이션 서비스. 6개 모듈 멀티모듈 아키텍처와 Kafka 기반 수집 파이프라인으로 18개 타깃 사이트를 코루틴 병렬 수집하고 자동 적재합니다.',
+    points: ['6개 모듈 멀티모듈 아키텍처', 'Kafka 기반 크롤링 → Chunk 50건 배치 적재', 'Snowflake ID 기반 분산 식별자 정책'],
+    stack: ['Spring Boot', 'Spring Batch', 'Kafka', 'MySQL', 'Redis'],
     link: 'https://dev-pick.com',
+  },
+  {
+    title: 'YouTIL',
+    type: 'Cloud · DevOps',
+    description:
+      'GitHub 커밋 내역을 분석해 TIL을 자동 생성하고 기술 면접 질문을 제공하는 개발자 학습 지원 서비스. Terraform IaC로 AWS EKS 클러스터를 구축하고 멀티 클라우드 환경을 운영했습니다.',
+    points: ['Terraform IaC 기반 AWS EKS 클러스터 구축', 'kubeadm 클러스터 → EKS 전환 운영', 'GitHub Actions CI/CD + CodeDeploy 자동 롤백'],
+    stack: ['AWS EKS', 'Terraform', 'GitHub Actions', 'Docker', 'GCP'],
   },
 ]
 
