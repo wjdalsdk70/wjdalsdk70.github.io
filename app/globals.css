@@ -3,37 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --background: #f6f3ee;
-  --foreground: #191b1f;
+  --background: #faf8f5;
+  --foreground: #1c1917;
   --surface: #ffffff;
-  --surface-strong: #ebe4d8;
-  --sidebar-bg: #f0e8dc;
+  --surface-strong: #f0ebe3;
+  --sidebar-bg: #f2ede6;
   --card-bg: #ffffff;
-  --border: #ded6ca;
-  --text-muted: #6f7379;
-  --accent: #256f6c;
-  --accent-strong: #1d5553;
-  --accent-soft: rgba(37, 111, 108, 0.11);
-  --nav-hover-bg: rgba(37, 111, 108, 0.1);
-  --nav-active-bg: rgba(37, 111, 108, 0.14);
-  --nav-active-text: #1d5553;
+  --border: #e8e0d4;
+  --text-muted: #78716c;
+  --accent: #b45309;
+  --accent-strong: #92400e;
+  --accent-soft: rgba(180, 83, 9, 0.09);
+  --nav-hover-bg: rgba(180, 83, 9, 0.08);
+  --nav-active-bg: rgba(180, 83, 9, 0.12);
+  --nav-active-text: #92400e;
 }
 
 .dark {
-  --background: #101214;
-  --foreground: #f4f1ec;
-  --surface: #181b1f;
-  --surface-strong: #22272b;
-  --sidebar-bg: #181b1f;
-  --card-bg: #181b1f;
-  --border: #2f363b;
-  --text-muted: #a3a8ad;
-  --accent: #68b7ad;
-  --accent-strong: #8bd2c9;
-  --accent-soft: rgba(104, 183, 173, 0.13);
-  --nav-hover-bg: rgba(104, 183, 173, 0.12);
-  --nav-active-bg: rgba(104, 183, 173, 0.16);
-  --nav-active-text: #8bd2c9;
+  --background: #111110;
+  --foreground: #f5f0e8;
+  --surface: #1c1917;
+  --surface-strong: #26211d;
+  --sidebar-bg: #1c1917;
+  --card-bg: #1c1917;
+  --border: #2c2521;
+  --text-muted: #a8a29e;
+  --accent: #f59e0b;
+  --accent-strong: #fbbf24;
+  --accent-soft: rgba(245, 158, 11, 0.12);
+  --nav-hover-bg: rgba(245, 158, 11, 0.1);
+  --nav-active-bg: rgba(245, 158, 11, 0.15);
+  --nav-active-text: #fbbf24;
 }
 
 * {
