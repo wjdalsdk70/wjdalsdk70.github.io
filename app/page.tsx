@@ -29,18 +29,24 @@ const skills = [
 
 const experience = [
   {
-    period: '2025.10',
-    title: '케어마인더 · 백엔드 개발팀 (정규직)',
+    company: '(주)케어마인더',
+    role: '백엔드 개발팀 · 정규직',
+    range: '2025.10 ~ 현재',
+    duration: '6개월',
     body: 'CareNote·CareForm 백엔드 개발. 멀티 클라우드(NCP, GCP, AWS) 환경 구축 및 Prometheus·Loki·Grafana 기반 모니터링 환경 구성.',
   },
   {
-    period: '2024.09',
-    title: '케어마인더 · 백엔드 개발팀 (인턴)',
+    company: '(주)케어마인더',
+    role: '백엔드 개발팀 · 인턴',
+    range: '2024.09 ~ 2024.12',
+    duration: '4개월',
     body: 'CareFlow MVP 백엔드 개발. Spring Security + JWT + Redis 인증 구현, STOMP + Redis Pub/Sub 실시간 채팅 기능 구현.',
   },
   {
-    period: '2024.07',
-    title: '플리트소프트 · AI 개발팀 (인턴)',
+    company: '(주)플리트소프트',
+    role: 'AI 개발팀 · 인턴',
+    range: '2024.07 ~ 2024.08',
+    duration: '2개월',
     body: 'FakeKiller MVP 개발. YOLO-World 텍스트 인코더를 이미지 인코더로 교체하는 모델 개선 작업 수행.',
   },
 ]
@@ -134,12 +140,14 @@ export default function Home() {
         </div>
         <div className="timeline">
           {experience.map((item) => (
-            <article key={item.title}>
-              <span>{item.period}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </div>
+            <article key={item.company + item.range}>
+              <h3>{item.company}</h3>
+              <p className="exp-meta">
+                {item.role}
+                <span className="exp-period">{item.range}</span>
+                <span className="exp-duration">{item.duration}</span>
+              </p>
+              <p>{item.body}</p>
             </article>
           ))}
         </div>

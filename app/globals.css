@@ -563,28 +563,48 @@ a {
 }
 
 .timeline article {
-  display: grid;
-  grid-template-columns: 5rem 1fr;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
   border-top: 1px solid var(--border);
   padding-top: 1.25rem;
 }
 
-.timeline article > span {
-  color: var(--accent-strong);
-  font-size: 0.82rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
 .timeline h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
-.timeline p {
-  margin-top: 0.55rem;
+.exp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.exp-period {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.exp-duration {
+  display: inline-flex;
+  align-items: center;
+  height: 1.35rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.timeline p:last-child {
+  margin-top: 0.35rem;
   color: var(--text-muted);
   line-height: 1.75;
+  font-size: 0.92rem;
 }
 
 .contact-section {
@@ -694,8 +714,7 @@ a {
   }
 
   .timeline article {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
+    gap: 0.35rem;
   }
 
   .status-panel {
