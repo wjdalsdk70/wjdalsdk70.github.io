@@ -133,6 +133,55 @@ export default function Home() {
         <ProjectSection projects={projects} />
       </section>
 
+      <section id="harness" className="portfolio-section" aria-labelledby="harness-title">
+        <div className="section-heading">
+          <p className="eyebrow">AI Harness Engineering</p>
+          <h2 id="harness-title">하네스 엔지니어링</h2>
+        </div>
+        <div className="harness-layout">
+          <div className="harness-body">
+            <p className="harness-desc">
+              AI 에이전트와 슬래시 명령어를 직접 설계해 개발 워크플로우를 자동화하는
+              Claude Code 하네스를 제작합니다. 역할별 전문 에이전트로 코드 리뷰·보안 검증·TDD를
+              파이프라인으로 분리하고, 반복 작업을 명령어 한 줄로 대체합니다.
+            </p>
+            <ul className="harness-agents">
+              <li><strong>java-reviewer</strong> — 아키텍처·JPA 패턴·동시성 CRITICAL/HIGH 4단계 검증</li>
+              <li><strong>security-reviewer</strong> — OWASP Top 10 기반 SQL 인젝션·시크릿 노출 자동 차단</li>
+              <li><strong>tdd-guide</strong> — RED → GREEN → REFACTOR 워크플로우, JaCoCo 80% 강제</li>
+              <li><strong>database-reviewer</strong> — N+1 쿼리·스키마·Flyway 마이그레이션 검토</li>
+              <li><strong>performance-optimizer</strong> — 병목 식별 및 JPA Fetch 전략 최적화 제안</li>
+            </ul>
+            <a
+              href="https://github.com/wjdalsdk70/backend-claude-code"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="secondary-action harness-link"
+            >
+              ↗ GitHub에서 보기
+            </a>
+          </div>
+          <div className="harness-stats">
+            <div className="harness-stat">
+              <strong>8</strong>
+              <span>전문 에이전트</span>
+            </div>
+            <div className="harness-stat">
+              <strong>13</strong>
+              <span>슬래시 명령어</span>
+            </div>
+            <div className="harness-stat">
+              <strong>10</strong>
+              <span>재사용 스킬</span>
+            </div>
+            <div className="harness-stat">
+              <strong>3</strong>
+              <span>MCP 서버</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="experience" className="portfolio-section split-section" aria-labelledby="experience-title">
         <div className="section-heading">
           <p className="eyebrow">Experience</p>
