@@ -170,4 +170,37 @@ export const projects: Project[] = [
     },
     troubleshooting: [],
   },
+  {
+    slug: 'claude-code-harness',
+    title: '백엔드 Claude Code 하네스',
+    type: 'Dev Tools · OSS',
+    description:
+      'Java/Spring Boot 프로젝트에 Claude Code를 즉시 적용할 수 있는 통합 구성 하네스. 8개 전문 에이전트·13개 슬래시 명령어·10개 재사용 스킬로 보안 검증·TDD·빌드 자동화를 원클릭으로 제공합니다.',
+    points: [
+      '8개 전문 에이전트 (리뷰·보안·TDD·성능·DB)',
+      '13개 슬래시 명령어로 개발 워크플로우 자동화',
+      'OWASP 기반 CRITICAL/HIGH 취약점 자동 검증',
+    ],
+    stack: ['Claude Code', 'Shell Script', 'Spring Boot', 'MCP', 'Java'],
+    link: 'https://github.com/wjdalsdk70/backend-claude-code',
+    detail: {
+      period: '2025 - 현재',
+      team: '개인 프로젝트',
+      features: [
+        '8개 전문 에이전트 구성: java-reviewer, security-reviewer, tdd-guide, database-reviewer, performance-optimizer 등',
+        '13개 슬래시 명령어(/dev, /git commit, /git pr, /db-migrate 등)로 계획 → 구현 → 검증 → 배포 워크플로우 자동화',
+        '10개 재사용 스킬: Spring Boot Patterns, JPA Optimization, Hexagonal Architecture, Security Implementation 등',
+        '3개 MCP 서버 연동: GitHub MCP, Context7(Upstash), Sequential Thinking으로 외부 컨텍스트 자동 주입',
+        'install.sh / uninstall.sh로 기존 프로젝트 구성을 보존하며 비파괴 설치·제거',
+        'Claude Sonnet 4.6 기반, Haiku 4.5 fallback으로 모델 이중화',
+      ],
+      achievements: [
+        'OWASP Top 10 기반 CRITICAL/HIGH/MEDIUM/LOW 4단계 심각도 분류로 코드 리뷰 시 보안 취약점 자동 차단',
+        'JaCoCo 80% 커버리지 강제 + Awaitility 비동기 테스트 패턴으로 프로젝트 품질 기준 표준화',
+        '.installed-files 추적으로 재설치 시 기존 커스터마이제이션 보호, 팀 프로젝트 안전 적용',
+        'Conventional Commits 자동 생성으로 Git 히스토리 일관성 및 변경 추적성 확보',
+      ],
+    },
+    troubleshooting: [],
+  },
 ]
