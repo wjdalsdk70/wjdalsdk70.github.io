@@ -16,9 +16,11 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', onKey)
     document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
     return () => {
       document.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
     }
   }, [onClose])
 
