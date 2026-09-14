@@ -65,6 +65,8 @@ export type BookPage =
   | { kind: 'chapter'; id: string; chapter: Chapter }
   | { kind: 'entries'; id: string; chapter: Chapter; entries: TimelineEntry[]; index: number }
   | { kind: 'closing'; id: 'contact' }
+  | { kind: 'blank'; id: string }
+  | { kind: 'back'; id: 'back' }
 
 // 한 쪽에 담는 무게 — 카드 1(통계 있는 카드 1.6), 마일스톤 0.3
 const CAPACITY = 3.1
@@ -119,6 +121,9 @@ export function buildPages(): BookPage[] {
   }
 
   pages.push({ kind: 'closing', id: 'contact' })
+  // 뒷표지는 왼쪽 자리(홀수 인덱스)에 놓여야 닫힌 책으로 보인다
+  if (pages.length % 2 === 0) pages.push({ kind: 'blank', id: 'blank-end' })
+  pages.push({ kind: 'back', id: 'back' })
   pages[tocIndex] = { kind: 'toc', id: 'toc', items: tocItems }
   return pages
 }

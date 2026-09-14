@@ -46,6 +46,9 @@ export default function Book() {
   const step = isMobile ? 1 : 2
   const canPrev = page > 0
   const canNext = isMobile ? page < last : rightIdx < last
+  // 넘기는 동안은 닫힘 상태를 풀어 책이 열리는/닫히는 동작과 함께 가운데로 이동한다
+  const closedFront = spread === 0 && !flip
+  const closedBack = !isMobile && leftIdx === last && !flip
 
   const goTo = useCallback(
     (target: number) => {
@@ -90,7 +93,7 @@ export default function Book() {
       journey: tocIdx,
       projects: tocIdx,
       experience: tocIdx,
-      contact: last,
+      contact: pages.findIndex((p) => p.kind === 'closing'),
     }
     const apply = () => {
       const key = window.location.hash.replace('#', '')
@@ -160,7 +163,13 @@ export default function Book() {
     }
   }
 
-  const label = isMobile ? `${page} / ${last}` : spread === 0 ? `표지` : `${leftIdx}–${Math.min(rightIdx, last)} / ${last}`
+  const label = isMobile
+    ? `${page} / ${last}`
+    : spread === 0
+      ? '표지'
+      : leftIdx === last
+        ? '뒷표지'
+        : `${leftIdx}–${Math.min(rightIdx, last)} / ${last}`
 
   return (
     <div className="book-stage" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
@@ -171,7 +180,9 @@ export default function Book() {
           </div>
         </div>
       ) : (
-        <div className={`book-spread${spread === 0 ? ' is-cover' : ''}${flip ? ' is-flipping' : ''}`}>
+        <div
+          className={`book-spread${closedFront ? ' is-closed-front' : ''}${closedBack ? ' is-closed-back' : ''}${flip ? ' is-flipping' : ''}`}
+        >
           <div className="book-slot book-slot-left" onClick={onSlotClick('left')}>
             {render(staticLeft)}
           </div>

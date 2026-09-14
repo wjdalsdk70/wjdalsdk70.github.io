@@ -542,6 +542,27 @@ a.detail-link:hover {
   grid-template-columns: 1fr 1fr;
   perspective: 3800px;
   filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.18));
+  transition: transform 0.7s cubic-bezier(0.4, 0.05, 0.3, 1);
+}
+
+/* 닫힌 책 — 앞표지는 오른쪽 한 쪽만, 뒷표지는 왼쪽 한 쪽만 보이게 하고 가운데로 민다 */
+.is-closed-front { transform: translateX(-25%); }
+.is-closed-back { transform: translateX(25%); }
+
+.is-closed-front .book-slot-left,
+.is-closed-back .book-slot-right {
+  visibility: hidden;
+}
+
+.is-closed-front .book-slot-right,
+.is-closed-back .book-slot-left {
+  border-radius: 0.6rem;
+  border: 1px solid var(--border);
+}
+
+.is-closed-front .book-slot-right::after,
+.is-closed-back .book-slot-left::after {
+  display: none;
 }
 
 .book-slot {
@@ -582,10 +603,6 @@ a.detail-link:hover {
 .book-slot-right::after {
   left: 0;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.14), transparent);
-}
-
-.is-cover .book-slot-left {
-  background: var(--surface-strong);
 }
 
 /* 넘어가는 낱장 */
@@ -754,6 +771,32 @@ a.detail-link:hover {
   font-size: 0.78rem;
   color: var(--text-muted);
 }
+
+/* 뒷표지 */
+.book-back {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  background:
+    radial-gradient(circle at 70% 80%, var(--accent-soft), transparent 55%),
+    var(--surface);
+}
+
+.book-back-mark {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 900;
+  margin-bottom: 0.6rem;
+}
+
+.book-back-title { font-weight: 800; }
+.book-back-sub, .book-back-url { color: var(--text-muted); font-size: 0.85rem; }
 
 /* 저자 소개 */
 .book-body {

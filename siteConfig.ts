@@ -15,9 +15,5 @@ export const siteConfig = {
     linkedin: 'https://www.linkedin.com/in/jm-info',
     twitter: 'twitter_username',
   },
-  nav: [
-    { name: '표지', href: '/#cover' },
-    { name: '목차', href: '/#toc' },
-    { name: '연락처', href: '/#contact' },
-  ],
+  nav: [] as { name: string; href: string }[],
 } as const

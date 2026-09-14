@@ -216,6 +216,19 @@ export default function BookPage({ page, pageNumber, onOpenProject, onGoTo }: Pr
         </div>
       )
 
+    case 'blank':
+      return <div className="book-page book-blank" aria-hidden="true" />
+
+    case 'back':
+      return (
+        <div className="book-page book-back">
+          <span className="book-back-mark">JM</span>
+          <p className="book-back-title">이정민 · 개발 여정</p>
+          <p className="book-back-sub">Backend Developer</p>
+          <p className="book-back-url">wjdalsdk70.github.io</p>
+        </div>
+      )
+
     case 'closing':
       return (
         <div className="book-page book-closing">
