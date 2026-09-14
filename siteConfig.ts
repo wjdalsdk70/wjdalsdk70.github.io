@@ -18,8 +18,7 @@ export const siteConfig = {
   },
   nav: [
     { name: 'Intro', href: '/#intro' },
-    { name: 'Projects', href: '/#projects' },
-    { name: 'Experience', href: '/#experience' },
+    { name: 'Journey', href: '/#journey' },
     { name: 'Contact', href: '/#contact' },
   ],
 } as const

@@ -3,8 +3,9 @@ import Link from 'next/link'
 import { FaJava, FaAws } from 'react-icons/fa'
 import { SiSpringboot, SiFastapi, SiApachekafka, SiMysql, SiRedis, SiMongodb, SiDocker, SiGithubactions, SiTerraform, SiNextdotjs } from 'react-icons/si'
 import { siteConfig } from '@/siteConfig'
-import ProjectSection from '@/components/ProjectSection'
+import Timeline from '@/components/Timeline'
 import { projects } from '@/lib/projects-data'
+import { timeline } from '@/lib/timeline-data'
 
 const highlights = [
   { value: 'Backend', label: 'MSA 기반 서비스 설계와 안정적인 API 구현에 집중합니다.' },
@@ -25,30 +26,6 @@ const skills = [
   { name: 'GitHub Actions', Icon: SiGithubactions, color: '#2088FF' },
   { name: 'Terraform',      Icon: SiTerraform,     color: '#7B42BC' },
   { name: 'Next.js',        Icon: SiNextdotjs,     color: '#8b8b8b' },
-]
-
-const experience = [
-  {
-    company: '(주)케어마인더',
-    role: '백엔드 개발팀 · 정규직',
-    range: '2025.10 ~ 현재',
-    duration: '6개월',
-    body: 'CareNote·CareForm 백엔드 개발. 멀티 클라우드(NCP, GCP, AWS) 환경 구축 및 Prometheus·Loki·Grafana 기반 모니터링 환경 구성.',
-  },
-  {
-    company: '(주)케어마인더',
-    role: '백엔드 개발팀 · 인턴',
-    range: '2024.09 ~ 2024.12',
-    duration: '4개월',
-    body: 'CareFlow MVP 백엔드 개발. Spring Security + JWT + Redis 인증 구현, STOMP + Redis Pub/Sub 실시간 채팅 기능 구현.',
-  },
-  {
-    company: '(주)플리트소프트',
-    role: 'AI 개발팀 · 인턴',
-    range: '2024.07 ~ 2024.08',
-    duration: '2개월',
-    body: 'FakeKiller MVP 개발. YOLO-World 텍스트 인코더를 이미지 인코더로 교체하는 모델 개선 작업 수행.',
-  },
 ]
 
 export default function Home() {
@@ -125,81 +102,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="portfolio-section" aria-labelledby="projects-title">
+      <section id="journey" className="portfolio-section" aria-labelledby="journey-title">
+        <span id="projects" aria-hidden="true" />
+        <span id="experience" aria-hidden="true" />
         <div className="section-heading">
-          <p className="eyebrow">Selected Work</p>
-          <h2 id="projects-title">프로젝트</h2>
+          <p className="eyebrow">Journey</p>
+          <h2 id="journey-title">개발 여정</h2>
         </div>
-        <ProjectSection projects={projects} />
-      </section>
-
-      <section id="harness" className="portfolio-section" aria-labelledby="harness-title">
-        <div className="section-heading">
-          <p className="eyebrow">AI Harness Engineering</p>
-          <h2 id="harness-title">하네스 엔지니어링</h2>
-        </div>
-        <div className="harness-layout">
-          <div className="harness-body">
-            <p className="harness-desc">
-              AI 에이전트와 슬래시 명령어를 직접 설계해 개발 워크플로우를 자동화하는
-              Claude Code 하네스를 제작합니다. 역할별 전문 에이전트로 코드 리뷰·보안 검증·TDD를
-              파이프라인으로 분리하고, 반복 작업을 명령어 한 줄로 대체합니다.
-            </p>
-            <ul className="harness-agents">
-              <li><strong>java-reviewer</strong> — 아키텍처·JPA 패턴·동시성 CRITICAL/HIGH 4단계 검증</li>
-              <li><strong>security-reviewer</strong> — OWASP Top 10 기반 SQL 인젝션·시크릿 노출 자동 차단</li>
-              <li><strong>tdd-guide</strong> — RED → GREEN → REFACTOR 워크플로우, JaCoCo 80% 강제</li>
-              <li><strong>database-reviewer</strong> — N+1 쿼리·스키마·Flyway 마이그레이션 검토</li>
-              <li><strong>performance-optimizer</strong> — 병목 식별 및 JPA Fetch 전략 최적화 제안</li>
-            </ul>
-            <a
-              href="https://github.com/wjdalsdk70/backend-claude-code"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="secondary-action harness-link"
-            >
-              ↗ GitHub에서 보기
-            </a>
-          </div>
-          <div className="harness-stats">
-            <div className="harness-stat">
-              <strong>8</strong>
-              <span>전문 에이전트</span>
-            </div>
-            <div className="harness-stat">
-              <strong>13</strong>
-              <span>슬래시 명령어</span>
-            </div>
-            <div className="harness-stat">
-              <strong>10</strong>
-              <span>재사용 스킬</span>
-            </div>
-            <div className="harness-stat">
-              <strong>3</strong>
-              <span>MCP 서버</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" className="portfolio-section split-section" aria-labelledby="experience-title">
-        <div className="section-heading">
-          <p className="eyebrow">Experience</p>
-          <h2 id="experience-title">경력</h2>
-        </div>
-        <div className="timeline">
-          {experience.map((item) => (
-            <article key={item.company + item.range}>
-              <h3>{item.company}</h3>
-              <p className="exp-meta">
-                {item.role}
-                <span className="exp-period">{item.range}</span>
-                <span className="exp-duration">{item.duration}</span>
-              </p>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
+        <Timeline entries={timeline} projects={projects} />
       </section>
 
       <section id="contact" className="contact-section" aria-labelledby="contact-title">
