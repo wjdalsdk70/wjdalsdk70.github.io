@@ -49,6 +49,11 @@ export default function Timeline({ entries, projects }: { entries: TimelineEntry
                   <span className="journey-range">{formatRange(entry)}</span>
                   <strong>{entry.title}</strong>
                   <span className="journey-milestone-sub">{entry.subtitle}</span>
+                  {entry.link && (
+                    <a href={entry.link} target="_blank" rel="noopener noreferrer" className="journey-milestone-link">
+                      ↗ {entry.kind === 'launch' ? 'App Store' : '보기'}
+                    </a>
+                  )}
                 </p>
               </li>
             )

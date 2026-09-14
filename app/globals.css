@@ -1013,6 +1013,17 @@ a.detail-link:hover {
   font-size: 0.82rem;
 }
 
+.journey-milestone-link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.journey-milestone-link:hover { text-decoration: underline; }
+
+.journey-launch .journey-kind { background: var(--accent); color: #fff; }
+.journey-launch .journey-dot { background: var(--accent); border-color: var(--accent); }
+
 .journey-award .journey-kind,
 .journey-award .journey-dot { border-color: #ca8a04; }
 .journey-award .journey-kind { background: rgba(202, 138, 4, 0.14); color: #a16207; }

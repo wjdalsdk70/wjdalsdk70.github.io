@@ -10,9 +10,10 @@ export type TimelineKind =
   | 'club'
   | 'award'
   | 'cert'
+  | 'launch'
 
 // award·cert 는 카드가 아니라 축 위 한 줄 마일스톤으로 그린다
-export const COMPACT_KINDS: TimelineKind[] = ['award', 'cert']
+export const COMPACT_KINDS: TimelineKind[] = ['award', 'cert', 'launch']
 
 export type TimelineEntry = {
   id: string
@@ -38,6 +39,7 @@ export const KIND_LABEL: Record<TimelineKind, string> = {
   club: '동아리',
   award: '수상',
   cert: '자격증',
+  launch: '출시',
 }
 
 export const timeline: TimelineEntry[] = [
@@ -94,6 +96,16 @@ export const timeline: TimelineEntry[] = [
       '인턴 때 MVP 를 만들었던 서비스에 정규직으로 돌아와 운영·고도화. 6개 멀티모듈 아키텍처로 200+ API 를 운영하고 CI/CD 를 최적화했습니다.',
     stack: ['Spring Boot', 'MySQL', 'Redis', 'MongoDB', 'Docker'],
     projectSlug: 'careflow',
+  },
+  {
+    id: 'scene-log-appstore',
+    kind: 'launch',
+    start: '2026-08',
+    end: '2026-08',
+    title: '씬로그 iOS 앱스토어 출시',
+    subtitle: 'Capacitor · 1인 개발',
+    summary: '',
+    link: 'https://apps.apple.com/kr/app/id6799629971',
   },
   {
     id: 'scene-log',
