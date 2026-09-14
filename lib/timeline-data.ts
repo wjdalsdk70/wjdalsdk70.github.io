@@ -96,6 +96,17 @@ export const timeline: TimelineEntry[] = [
     projectSlug: 'careflow',
   },
   {
+    id: 'scene-log',
+    kind: 'project',
+    start: '2026-07',
+    title: '씬로그 (Scene-Log)',
+    subtitle: 'Side Project · 1인 개발',
+    summary:
+      '영화·드라마·애니 감상 기록 + 소셜 다이어리 PWA. TMDB 연동 검색, 카카오·Apple 로그인, 팔로우·컬렉션·반응 소셜 루프를 만들고 k3s 에 배포, Capacitor 로 iOS 앱스토어까지 출시했습니다.',
+    stack: ['FastAPI', 'Next.js', 'MySQL', 'k3s', 'Capacitor', 'TMDB'],
+    link: 'https://scene.zmint.dev',
+  },
+  {
     id: 'harness',
     kind: 'harness',
     start: '2026-05',
