@@ -119,6 +119,18 @@ export const timeline: TimelineEntry[] = [
     link: 'https://scene.zmint.dev',
   },
   {
+    id: 'todac',
+    kind: 'project',
+    start: '2026-05',
+    end: '2026-06',
+    title: '토닥 (to-doc)',
+    subtitle: 'SSAFY × 카카오테크 부트캠프 AI 해커톤 · 본선 진출',
+    summary:
+      'AI 토지 인허가 안내 서비스. 좌표 하나로 VWorld·건축물대장 공공 API 를 묶어 토지 특성·규제·적용 가능 허가 유형을 판정하는 백엔드를 구축. 예선 통과 12팀 본선(카카오 AI캠퍼스, 무박 2일).',
+    stack: ['Spring Boot', 'MySQL', 'VWorld API', 'data.go.kr', 'LLM'],
+    link: 'https://github.com/to-dac/to-doc-docs',
+  },
+  {
     id: 'harness',
     kind: 'harness',
     start: '2026-05',
