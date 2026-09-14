@@ -2,7 +2,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ProjectModal } from '@/components/ProjectSection'
+import { ProjectModal } from '@/components/ProjectModal'
 import type { Project } from '@/lib/projects-data'
 import { KIND_LABEL, type TimelineEntry } from '@/lib/timeline-data'
 
