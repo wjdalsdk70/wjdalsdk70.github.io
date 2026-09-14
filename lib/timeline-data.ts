@@ -140,11 +140,11 @@ export const timeline: TimelineEntry[] = [
     start: '2026-04',
     end: '2026-08',
     title: 'Monix',
-    subtitle: 'CMUX 해커톤 · 팀 co-tox',
+    subtitle: 'CMUX × AIM 해커톤 · 팀 co-tox',
     summary:
       '터미널 네이티브 서버 모니터링 AI 어시스턴트 CLI. 슬래시 명령과 자연어 채팅이 같은 도구를 공유하고, 파괴적 명령은 절대 실행하지 않는 읽기 전용 설계. 런타임 의존성 0(표준 라이브러리만)으로 PyPI 배포, MCP 서버 제공.',
     stack: ['Python', 'PyPI', 'MCP', 'Linux', 'macOS'],
-    link: 'https://github.com/co-tox/monix',
+    link: 'https://github.com/wjdalsdk70/monix',
   },
   {
     id: 'youtil',
