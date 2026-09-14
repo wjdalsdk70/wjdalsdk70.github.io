@@ -6,7 +6,6 @@ export const siteConfig = {
   siteUrl: 'https://wjdalsdk70.github.io',
   avatar: avatarImage,
   aboutUrl: '/about.pdf',
-  portfolioUrl: '/portfolio.pdf',
   songUrl:
     'https://www.youtube.com/watch?v=E1rqAcMr-ps&list=RDE1rqAcMr-ps&start_radio=1',
   social: {

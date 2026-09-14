@@ -17,9 +17,8 @@ function toPdfUrl(url?: string) {
 
 export default function AboutPage() {
   const resumePdfSrc = toPdfUrl(siteConfig.aboutUrl)
-  const portfolioPdfSrc = toPdfUrl(siteConfig.portfolioUrl)
 
-  if (!resumePdfSrc && !portfolioPdfSrc) {
+  if (!resumePdfSrc) {
     return (
       <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
         <h1>About</h1>
@@ -32,7 +31,7 @@ export default function AboutPage() {
     <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
       <h1>About</h1>
       <div className="not-prose">
-        <AboutClient resumeUrl={resumePdfSrc} portfolioUrl={portfolioPdfSrc} />
+        <AboutClient resumeUrl={resumePdfSrc} />
       </div>
     </div>
   )
