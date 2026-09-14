@@ -6,7 +6,7 @@ import type { Project } from '@/lib/projects-data'
 
 export type { Project }
 
-function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+export function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const handleBackdropClick = useCallback(
     (e: React.MouseEvent) => { if (e.target === e.currentTarget) onClose() },
     [onClose]
