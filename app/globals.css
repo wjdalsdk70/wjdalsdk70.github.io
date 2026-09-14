@@ -985,6 +985,49 @@ a.detail-link:hover {
 .journey-career .journey-dot { border-color: var(--foreground); }
 .journey-harness .journey-dot { border-color: #7B42BC; }
 
+.is-compact .journey-dot {
+  top: 0.55rem;
+  width: 10px;
+  height: 10px;
+  left: calc(var(--journey-axis) - 5px);
+  border-width: 2px;
+}
+
+.journey-milestone {
+  grid-column: 2;
+  margin-left: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  font-size: 0.88rem;
+}
+
+.journey-milestone strong {
+  font-weight: 800;
+}
+
+.journey-milestone-sub {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.journey-award .journey-kind,
+.journey-award .journey-dot { border-color: #ca8a04; }
+.journey-award .journey-kind { background: rgba(202, 138, 4, 0.14); color: #a16207; }
+.journey-cert .journey-kind { background: var(--surface-strong); color: var(--text-muted); }
+.journey-education .journey-kind,
+.journey-training .journey-kind { background: rgba(37, 99, 235, 0.1); color: #1d4ed8; }
+.journey-education .journey-dot,
+.journey-training .journey-dot { border-color: #2563eb; }
+.journey-activity .journey-kind,
+.journey-club .journey-kind { background: var(--surface-strong); color: var(--text-muted); }
+
+.dark .journey-award .journey-kind { color: #facc15; }
+.dark .journey-education .journey-kind,
+.dark .journey-training .journey-kind { color: #93c5fd; }
+
 .is-ongoing .journey-dot {
   background: var(--accent);
   border-color: var(--accent);
@@ -1129,10 +1172,18 @@ a.detail-link:hover {
     font-size: 1.15rem;
   }
 
-  .journey-card {
+  .journey-card,
+  .journey-milestone {
     grid-column: 1;
     margin-left: 2rem;
+  }
+
+  .journey-card {
     padding: 1rem 1.1rem;
+  }
+
+  .is-compact.journey-item:has(.journey-year) .journey-dot {
+    top: 2.3rem;
   }
 
   .journey-dot {

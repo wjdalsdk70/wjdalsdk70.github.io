@@ -1,6 +1,18 @@
 // 홈 "개발 여정" 타임라인 항목 데이터 및 타입 정의
 
-export type TimelineKind = 'career' | 'project' | 'harness'
+export type TimelineKind =
+  | 'career'
+  | 'project'
+  | 'harness'
+  | 'education'
+  | 'training'
+  | 'activity'
+  | 'club'
+  | 'award'
+  | 'cert'
+
+// award·cert 는 카드가 아니라 축 위 한 줄 마일스톤으로 그린다
+export const COMPACT_KINDS: TimelineKind[] = ['award', 'cert']
 
 export type TimelineEntry = {
   id: string
@@ -20,6 +32,12 @@ export const KIND_LABEL: Record<TimelineKind, string> = {
   career: '경력',
   project: '프로젝트',
   harness: '하네스',
+  education: '학력',
+  training: '교육',
+  activity: '활동',
+  club: '동아리',
+  award: '수상',
+  cert: '자격증',
 }
 
 export const timeline: TimelineEntry[] = [
@@ -125,5 +143,152 @@ export const timeline: TimelineEntry[] = [
     subtitle: 'AI 개발팀 · 인턴',
     summary:
       'FakeKiller MVP 개발. YOLO-World 텍스트 인코더를 이미지 인코더로 교체하는 모델 개선 작업 수행.',
+  },
+  {
+    id: 'goormthon-17',
+    kind: 'activity',
+    start: '2026-03',
+    end: '2026-04',
+    title: '구름톤 17기',
+    subtitle: '해커톤',
+    summary: '구름에서 주최하는 단기 해커톤 참가.',
+  },
+  {
+    id: 'cert-sqld',
+    kind: 'cert',
+    start: '2026-03',
+    end: '2026-03',
+    title: 'SQLD',
+    subtitle: '한국데이터산업진흥원',
+    summary: '',
+  },
+  {
+    id: 'cert-aws-saa',
+    kind: 'cert',
+    start: '2026-02',
+    end: '2026-02',
+    title: 'AWS Certified Solutions Architect – Associate',
+    subtitle: 'AWS · 774점',
+    summary: '',
+  },
+  {
+    id: 'ces-2026',
+    kind: 'activity',
+    start: '2026-01',
+    end: '2026-01',
+    title: 'CES 2026 출장',
+    subtitle: '라스베가스',
+    summary: '케어마인더 전시회 부스 운영.',
+  },
+  {
+    id: 'award-loadtest',
+    kind: 'award',
+    start: '2025-08',
+    end: '2025-08',
+    title: '부하테스트 대회 최우수상',
+    subtitle: '카카오테크 부트캠프 · 21팀 중 2등',
+    summary: '',
+  },
+  {
+    id: 'kakao-bootcamp',
+    kind: 'training',
+    start: '2025-01',
+    end: '2025-08',
+    title: '카카오테크 부트캠프 2기',
+    subtitle: '클라우드 네이티브 과정 · 1000시간',
+    summary:
+      'Linux 서버 운영, Docker & Kubernetes, AWS & Terraform 실습. 부하테스트 대회에서 MSA 구조로 개선해 최우수상.',
+  },
+  {
+    id: 'cert-opic',
+    kind: 'cert',
+    start: '2025-01',
+    end: '2025-01',
+    title: 'OPIc (English) IL',
+    subtitle: 'ACTFL',
+    summary: '',
+  },
+  {
+    id: 'ajou',
+    kind: 'education',
+    start: '2019-03',
+    end: '2025-02',
+    title: '아주대학교 소프트웨어공학과',
+    subtitle: '학사',
+    summary: '2020.04 ~ 2021.10 육군 만기전역.',
+  },
+  {
+    id: 'award-jeongjuyoung',
+    kind: 'award',
+    start: '2024-11',
+    end: '2024-11',
+    title: '정주영 창업 경진대회 우수상',
+    subtitle: '아산나눔재단',
+    summary: '',
+  },
+  {
+    id: 'award-startup-track',
+    kind: 'award',
+    start: '2024-10',
+    end: '2024-10',
+    title: '학생 창업 유망팀 도약트랙 장려상',
+    subtitle: '교육부',
+    summary: '',
+  },
+  {
+    id: 'cert-engineer',
+    kind: 'cert',
+    start: '2024-06',
+    end: '2024-06',
+    title: '정보처리기사',
+    subtitle: '한국산업인력공단',
+    summary: '',
+  },
+  {
+    id: 'modulabs',
+    kind: 'activity',
+    start: '2023-07',
+    end: '2023-09',
+    title: '모두의연구소 풀잎스쿨 퍼실리테이터',
+    subtitle: '"Auto-GPT를 활용한 서비스 제작"',
+    summary:
+      'LangChain·Auto-GPT 기반 서비스 제작 스터디를 기획·리딩. 커리큘럼 설계, 코드 리뷰, 발표 운영을 주도하고 Tour-GPT 개발.',
+  },
+  {
+    id: 'award-drone',
+    kind: 'award',
+    start: '2023-07',
+    end: '2023-07',
+    title: '자율주행 미니드론 경진대회 동상',
+    subtitle: '대한전기학회',
+    summary: '',
+  },
+  {
+    id: 'club-nuovo',
+    kind: 'club',
+    start: '2023-01',
+    end: '2024-06',
+    title: 'Nuovo',
+    subtitle: '교내 인공지능 소학회',
+    summary:
+      '머신러닝 기초 스터디 → GPT-Academy 스터디 운영(MS 해커톤 AI 면접 챗봇 제작) → 공모전 부서 운영진.',
+  },
+  {
+    id: 'club-atom',
+    kind: 'club',
+    start: '2022-03',
+    end: '2023-12',
+    title: 'Atom',
+    subtitle: '자율주행 동아리',
+    summary: '미니드론 자율주행 경진대회 동상, 국민대·대학생 자율주행 경진대회 참가.',
+  },
+  {
+    id: 'club-clear',
+    kind: 'club',
+    start: '2022-03',
+    end: '2022-12',
+    title: 'Clear',
+    subtitle: '교내 배드민턴 동아리 · 운영진',
+    summary: '교내 대회 복식 동상. 대회와 MT 기획·운영.',
   },
 ]

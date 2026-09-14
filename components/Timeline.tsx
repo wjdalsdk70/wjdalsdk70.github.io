@@ -4,7 +4,7 @@
 import { useState } from 'react'
 import { ProjectModal } from '@/components/ProjectModal'
 import type { Project } from '@/lib/projects-data'
-import { KIND_LABEL, type TimelineEntry } from '@/lib/timeline-data'
+import { COMPACT_KINDS, KIND_LABEL, type TimelineEntry } from '@/lib/timeline-data'
 
 function formatMonth(ym: string) {
   const [y, m] = ym.split('-')
@@ -12,6 +12,7 @@ function formatMonth(ym: string) {
 }
 
 function formatRange(entry: TimelineEntry) {
+  if (entry.end === entry.start) return formatMonth(entry.start)
   return `${formatMonth(entry.start)} ~ ${entry.end ? formatMonth(entry.end) : '현재'}`
 }
 
@@ -36,6 +37,22 @@ export default function Timeline({ entries, projects }: { entries: TimelineEntry
           lastYear = year
           const ongoing = !entry.end
           const clickable = Boolean(entry.projectSlug)
+          const compact = COMPACT_KINDS.includes(entry.kind)
+
+          if (compact) {
+            return (
+              <li key={entry.id} className={`journey-item journey-${entry.kind} is-compact`}>
+                {showYear && <span className="journey-year">{year}</span>}
+                <span className="journey-dot" aria-hidden="true" />
+                <p className="journey-milestone">
+                  <span className="journey-kind">{KIND_LABEL[entry.kind]}</span>
+                  <span className="journey-range">{formatRange(entry)}</span>
+                  <strong>{entry.title}</strong>
+                  <span className="journey-milestone-sub">{entry.subtitle}</span>
+                </p>
+              </li>
+            )
+          }
 
           return (
             <li key={entry.id} className={`journey-item journey-${entry.kind}${ongoing ? ' is-ongoing' : ''}`}>
