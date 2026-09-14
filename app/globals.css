@@ -302,8 +302,7 @@ a {
   margin-top: 2rem;
 }
 
-.primary-action,
-.secondary-action {
+.primary-action {
   display: inline-flex;
   min-height: 2.9rem;
   align-items: center;
@@ -320,13 +319,7 @@ a {
   color: #ffffff;
 }
 
-.secondary-action {
-  border: 1px solid var(--border);
-  background: var(--surface);
-}
-
-.primary-action:hover,
-.secondary-action:hover {
+.primary-action:hover {
   transform: translateY(-2px);
 }
 

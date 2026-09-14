@@ -44,10 +44,7 @@ export default function Home() {
               구축한 경험이 있습니다.
             </p>
             <div className="hero-actions">
-              <a href={siteConfig.portfolioUrl} className="primary-action">
-                Portfolio PDF
-              </a>
-              <a href={`mailto:${siteConfig.social.email}`} className="secondary-action">
+              <a href={`mailto:${siteConfig.social.email}`} className="primary-action">
                 Contact
               </a>
             </div>
