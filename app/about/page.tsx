@@ -20,7 +20,7 @@ export default function AboutPage() {
 
   if (!resumePdfSrc) {
     return (
-      <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
+      <div className="prose prose-lg max-w-none -mt-16">
         <h1>About</h1>
         <p>PDF 경로가 없습니다.</p>
       </div>
@@ -28,7 +28,7 @@ export default function AboutPage() {
   }
 
   return (
-    <div className="prose prose-lg dark:prose-invert max-w-none -mt-16">
+    <div className="prose prose-lg max-w-none -mt-16">
       <h1>About</h1>
       <div className="not-prose">
         <AboutClient resumeUrl={resumePdfSrc} />

@@ -19,23 +19,6 @@
   --nav-active-text: #92400e;
 }
 
-.dark {
-  --background: #111110;
-  --foreground: #f5f0e8;
-  --surface: #1c1917;
-  --surface-strong: #26211d;
-  --sidebar-bg: #1c1917;
-  --card-bg: #1c1917;
-  --border: #2c2521;
-  --text-muted: #a8a29e;
-  --accent: #f59e0b;
-  --accent-strong: #fbbf24;
-  --accent-soft: rgba(245, 158, 11, 0.12);
-  --nav-hover-bg: rgba(245, 158, 11, 0.1);
-  --nav-active-bg: rgba(245, 158, 11, 0.15);
-  --nav-active-text: #fbbf24;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
