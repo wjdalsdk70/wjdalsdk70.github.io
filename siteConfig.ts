@@ -16,8 +16,8 @@ export const siteConfig = {
     twitter: 'twitter_username',
   },
   nav: [
-    { name: 'Intro', href: '/#intro' },
-    { name: 'Journey', href: '/#journey' },
-    { name: 'Contact', href: '/#contact' },
+    { name: '표지', href: '/#cover' },
+    { name: '목차', href: '/#toc' },
+    { name: '연락처', href: '/#contact' },
   ],
 } as const
