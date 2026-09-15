@@ -197,6 +197,7 @@ export default function BookPage({ page, pageNumber, onOpenProject, onGoTo }: Pr
           <p className="book-chapter-label">{page.chapter.label}</p>
           <h2>{page.chapter.title}</h2>
           <p className="book-chapter-range">{page.chapter.range}</p>
+          <p className="book-chapter-story">{page.chapter.story}</p>
           <span className="book-folio">{pageNumber}</span>
         </div>
       )

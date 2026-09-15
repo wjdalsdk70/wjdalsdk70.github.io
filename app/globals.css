@@ -910,6 +910,13 @@ a.detail-link:hover {
   font-weight: 700;
 }
 
+.book-chapter-story {
+  max-width: 22rem;
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
 /* 내용 쪽 */
 .book-running-head {
   font-size: 0.72rem;

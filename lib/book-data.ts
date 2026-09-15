@@ -7,6 +7,7 @@ export type Chapter = {
   label: string // '서막', '1장' ...
   title: string
   range: string
+  story: string
   entryIds: string[]
 }
 
@@ -16,38 +17,45 @@ export const chapters: Chapter[] = [
     label: '서막',
     title: '학교와 동아리',
     range: '2019 — 2023',
+    story: '관심을 프로젝트로 옮기며 개발의 기본기를 쌓았습니다.',
     entryIds: ['ajou', 'club-clear', 'club-atom', 'club-nuovo', 'award-drone', 'modulabs'],
   },
   {
     id: 'ch1',
     label: '1장',
-    title: '두 번의 인턴',
+    title: '실전 개발의 시작',
     range: '2024',
+    story: '인턴 경험을 통해 실제 사용자를 위한 서비스를 개발하며 실전 개발 역량을 키웠습니다.',
     entryIds: ['cert-engineer', 'fleetsoft-intern', 'careminder-intern', 'award-startup-track', 'award-jeongjuyoung'],
   },
   {
     id: 'ch2',
     label: '2장',
-    title: '부트캠프',
-    range: '2025 상반기',
-    entryIds: ['cert-opic', 'kakao-bootcamp', 'youtil', 'award-loadtest'],
+    title: '클라우드와 운영',
+    range: '2025',
+    story: '기능을 만드는 것을 넘어, 서비스를 안정적으로 운영하는 개발자로 성장했습니다.',
+    entryIds: [
+      'cert-opic',
+      'kakao-bootcamp',
+      'youtil',
+      'award-loadtest',
+      'careminder-fulltime',
+      'careflow-return',
+      'carenote',
+      'careform',
+      'dev-pick',
+    ],
   },
   {
     id: 'ch3',
     label: '3장',
-    title: '케어마인더',
-    range: '2025.10 — 현재',
-    entryIds: ['careminder-fulltime', 'careflow-return', 'carenote', 'careform', 'ces-2026'],
-  },
-  {
-    id: 'ch4',
-    label: '4장',
-    title: '사이드 프로젝트와 해커톤',
-    range: '2025.11 — 현재',
+    title: 'AX와 1인 개발',
+    range: '2026',
+    story: 'AI를 개발 프로세스에 통합하고, 기획부터 iOS 앱스토어 출시까지 혼자 완성하는 역량을 확장하고 있습니다.',
     entryIds: [
-      'dev-pick',
       'cert-aws-saa',
       'cert-sqld',
+      'ces-2026',
       'goormthon-17',
       'monix',
       'harness',
