@@ -37,6 +37,8 @@ export default function Book() {
   const [flip, setFlip] = useState<Flip | null>(null)
   const [selected, setSelected] = useState<Project | null>(null)
   const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
+  const touchAxis = useRef<'horizontal' | 'vertical' | null>(null)
 
   const last = pages.length - 1
   // 데스크톱 펼침: spread s 는 왼쪽 2s-1, 오른쪽 2s. 표지(0)는 혼자 오른쪽에 놓인다.
@@ -129,14 +131,37 @@ export default function Book() {
 
   const onTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX
+    touchStartY.current = e.touches[0].clientY
+    touchAxis.current = null
+  }
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return
+    const touch = e.touches[0]
+    const dx = touch.clientX - touchStartX.current
+    const dy = touch.clientY - touchStartY.current
+
+    if (!touchAxis.current && Math.max(Math.abs(dx), Math.abs(dy)) >= 10) {
+      touchAxis.current = Math.abs(dx) > Math.abs(dy) ? 'horizontal' : 'vertical'
+    }
+
+    if (touchAxis.current === 'horizontal') e.preventDefault()
   }
   const onTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null) return
+    if (touchStartX.current === null || touchStartY.current === null) return
     const dx = e.changedTouches[0].clientX - touchStartX.current
+    const dy = e.changedTouches[0].clientY - touchStartY.current
     touchStartX.current = null
-    if (Math.abs(dx) < 50) return
+    touchStartY.current = null
+    const axis = touchAxis.current
+    touchAxis.current = null
+    if (axis !== 'horizontal' || Math.abs(dx) < 50 || Math.abs(dx) <= Math.abs(dy)) return
     if (dx < 0) next()
     else prev()
+  }
+  const onTouchCancel = () => {
+    touchStartX.current = null
+    touchStartY.current = null
+    touchAxis.current = null
   }
 
   const render = (idx: number) =>
@@ -172,7 +197,13 @@ export default function Book() {
         : `${leftIdx}–${Math.min(rightIdx, last)} / ${last}`
 
   return (
-    <div className="book-stage" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+    <div
+      className="book-stage"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onTouchCancel={onTouchCancel}
+    >
       {isMobile ? (
         <div className="book-single">
           <div key={page} className="book-slot book-slot-enter" onClick={onSlotClick('right')}>
