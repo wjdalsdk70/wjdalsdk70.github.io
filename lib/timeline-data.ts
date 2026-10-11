@@ -219,15 +219,6 @@ export const timeline: TimelineEntry[] = [
     summary: '',
   },
   {
-    id: 'ces-2026',
-    kind: 'activity',
-    start: '2026-01',
-    end: '2026-01',
-    title: 'CES 2026 출장',
-    subtitle: '라스베가스',
-    summary: '케어마인더 전시회 부스 운영.',
-  },
-  {
     id: 'award-loadtest',
     kind: 'award',
     start: '2025-08',
@@ -262,7 +253,7 @@ export const timeline: TimelineEntry[] = [
     end: '2025-02',
     title: '아주대학교 소프트웨어공학과',
     subtitle: '학사',
-    summary: '2020.04 ~ 2021.10 육군 만기전역.',
+    summary: '',
   },
   {
     id: 'award-jeongjuyoung',
@@ -309,33 +300,5 @@ export const timeline: TimelineEntry[] = [
     title: '자율주행 미니드론 경진대회 동상',
     subtitle: '대한전기학회',
     summary: '',
-  },
-  {
-    id: 'club-nuovo',
-    kind: 'club',
-    start: '2023-01',
-    end: '2024-06',
-    title: 'Nuovo',
-    subtitle: '교내 인공지능 소학회',
-    summary:
-      '머신러닝 기초 스터디 → GPT-Academy 스터디 운영(MS 해커톤 AI 면접 챗봇 제작) → 공모전 부서 운영진.',
-  },
-  {
-    id: 'club-atom',
-    kind: 'club',
-    start: '2022-03',
-    end: '2023-12',
-    title: 'Atom',
-    subtitle: '자율주행 동아리',
-    summary: '미니드론 자율주행 경진대회 동상, 국민대·대학생 자율주행 경진대회 참가.',
-  },
-  {
-    id: 'club-clear',
-    kind: 'club',
-    start: '2022-03',
-    end: '2022-12',
-    title: 'Clear',
-    subtitle: '교내 배드민턴 동아리 · 운영진',
-    summary: '교내 대회 복식 동상. 대회와 MT 기획·운영.',
   },
 ]

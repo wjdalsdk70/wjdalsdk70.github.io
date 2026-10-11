@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
 
 // Worker 설정: 버전 호환성을 위해 유동적인 경로 설정
@@ -12,19 +12,12 @@ type AboutPDFProps = {
 
 export default function AboutPDF({ fileUrl }: AboutPDFProps) {
   const [numPages, setNumPages] = useState<number | null>(null)
-  const [isClient, setIsClient] = useState(false)
-
-  // 서버 사이드 렌더링과 클라이언트 렌더링의 불일치(Hydration Error) 방지
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages)
   }
 
-  if (!isClient) return <div className="p-4 text-center">뷰어를 준비 중입니다...</div>
-
+  // about-client에서 ssr: false로 로드하므로 별도의 클라이언트 상태가 필요하지 않습니다.
   return (
     <div className="flex flex-col items-center border rounded-lg overflow-hidden bg-gray-50 p-4 shadow-inner">
       <Document
