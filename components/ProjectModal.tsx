@@ -3,6 +3,7 @@
 
 import { useEffect, useCallback } from 'react'
 import type { Project } from '@/lib/projects-data'
+import { CaseStudyList } from '@/components/CaseStudyList'
 
 export function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const handleBackdropClick = useCallback(
@@ -57,25 +58,10 @@ export function ProjectModal({ project, onClose }: { project: Project; onClose: 
             </ul>
           </section>
 
-          {project.troubleshooting && project.troubleshooting.length > 0 && (
+          {project.cases && project.cases.length > 0 && (
             <section className="project-detail-section">
               <h2>트러블슈팅</h2>
-              <div className="ts-list">
-                {project.troubleshooting.map((item, idx) => (
-                  <article key={idx} className="ts-item">
-                    <h3>
-                      <span className="ts-number">{idx + 1}</span>
-                      {item.title}
-                    </h3>
-                    <dl>
-                      <div><dt>Situation</dt><dd>{item.situation}</dd></div>
-                      <div><dt>Task</dt><dd>{item.task}</dd></div>
-                      <div><dt>Action</dt><dd>{item.action}</dd></div>
-                      <div><dt>Result</dt><dd>{item.result}</dd></div>
-                    </dl>
-                  </article>
-                ))}
-              </div>
+              <CaseStudyList cases={project.cases} />
             </section>
           )}
 
