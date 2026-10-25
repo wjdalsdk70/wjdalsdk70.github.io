@@ -25,7 +25,7 @@ const capabilities = [
 
 const recentWork = [
   { slug: 'carenote', title: 'CareNote', summary: '음성을 간호 기록으로 연결하는 AI 서비스' },
-  { slug: 'careform', title: 'CareForm', summary: '실시간 음성 기반 문진 서비스' },
+  { slug: 'careflow', title: 'CareFlow', summary: '음성 기반 통합 AI 스마트 병원 솔루션' },
   { slug: 'dev-pick', title: 'Dev-Pick', summary: '테크 블로그 수집과 큐레이션' },
 ]
 
